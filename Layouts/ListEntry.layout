@@ -1,0 +1,115 @@
+PanelWidgetClass ListEntryRoot {
+ size 1 38
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 1
+ scriptclass "UI_CRDTNListEntry"
+ {
+  ButtonWidgetClass Button {
+   color 0.2 0.2588 0.3569 1
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+  }
+  PanelWidgetClass Content {
+   ignorepointer 1
+   color 0.0431 0.0431 0.0431 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   scaled 1
+   style blank
+   {
+    TextWidgetClass PrimaryText {
+     clipchildren 1
+     ignorepointer 1
+     position 0 0
+     size 100 19
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 0
+     text "Military"
+     font "CRDTN_Core/Data/fonts/Rajdhani-Medium/Rajdhani-Medium16"
+     "text offset" 20 0
+     "exact text" 0
+     "size to text h" 0
+     "size to text v" 0
+     "text valign" center
+    }
+    TextWidgetClass SecondaryText {
+     ignorepointer 1
+     color 0.4392 0.4392 0.4392 1
+     position 0 0
+     size 100 19
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 0
+     style Normal
+     text "Agroprom"
+     font "CRDTN_Core/Data/fonts/Rajdhani-Medium/Rajdhani-Medium16"
+     "text color" 0.4 0.4 0.4 1
+     "text offset" 20 0
+     "exact text" 0
+     "size to text h" 0
+     "size to text v" 0
+     "text valign" center
+    }
+    PanelWidgetClass ImageWrapper {
+     ignorepointer 1
+     position 0.00001 0
+     size 38 38
+     halign right_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass EntryIcon {
+       ignorepointer 1
+       position 0.1 0
+       size 0.8 0.8
+       halign right_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       fixaspect fixwidth
+       imageTexture "{27243CC09BA251E4}CRDTN_FactionsStalkerPack/Data/factions/mil.edds"
+       mode blend
+       "src alpha" 1
+       stretch 1
+      }
+     }
+    }
+   }
+  }
+  ImageWidgetClass Selected {
+   visible 1
+   ignorepointer 1
+   color 0.5882 0.5647 0.0588 1
+   size 0.005 1
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+  }
+ }
+}

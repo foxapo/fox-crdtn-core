@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{5698A7034E0DECA1}fonts/Rajdhani-Bold/Rajdhani-Bold16.edds"
+ Author "sanctuary-pc"
+ ChangeDate 1381854932
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "Rajdhani-Bold16.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{C4CA88E3F2C7DAB5}CRDTN_Core/Data/Fonts/Rajdhani-Medium/Rajdhani-Medium16.fnt"
+ Author "sanctuary-pc"
+ ChangeDate 1196601081
+ Configurations {
+  FNTResourceClass PC {
+  }
+  FNTResourceClass XBOX_ONE : PC {
+  }
+  FNTResourceClass PS4 : PC {
+  }
+  FNTResourceClass LINUX : PC {
+  }
+ }
+}

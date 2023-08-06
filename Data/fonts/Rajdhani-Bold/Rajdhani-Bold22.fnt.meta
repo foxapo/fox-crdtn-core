@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{80CDF9BF06C7D6D1}CRDTN_Core/Data/Fonts/Rajdhani-Bold/Rajdhani-Bold22.fnt"
+ Author "sanctuary-pc"
+ ChangeDate 726839033
+ Configurations {
+  FNTResourceClass PC {
+  }
+  FNTResourceClass XBOX_ONE : PC {
+  }
+  FNTResourceClass PS4 : PC {
+  }
+  FNTResourceClass LINUX : PC {
+  }
+ }
+}

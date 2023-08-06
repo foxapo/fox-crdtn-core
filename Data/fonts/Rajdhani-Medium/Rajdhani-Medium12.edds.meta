@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{C87ACFEA1C3FB6D6}fonts/Rajdhani-Medium/Rajdhani-Medium12.edds"
+ Author "sanctuary-pc"
+ ChangeDate 1818062548
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "Rajdhani-Medium12.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

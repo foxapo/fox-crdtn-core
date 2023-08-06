@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{C315114F443068B3}CRDTN_Core/Data/Fonts/Rajdhani-Light/Rajdhani-Light.fnt"
+ Author "sanctuary-pc"
+ ChangeDate 995274489
+ Configurations {
+  FNTResourceClass PC {
+  }
+  FNTResourceClass XBOX_ONE : PC {
+  }
+  FNTResourceClass PS4 : PC {
+  }
+  FNTResourceClass LINUX : PC {
+  }
+ }
+}

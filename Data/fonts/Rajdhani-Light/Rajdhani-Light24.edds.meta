@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{C99EC430C51E4B1C}Employer/data/fonts/Rajdhani-Light24.edds"
+ Author "sanctuary-pc"
+ ChangeDate -1344983340
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "Rajdhani-Light24.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}
