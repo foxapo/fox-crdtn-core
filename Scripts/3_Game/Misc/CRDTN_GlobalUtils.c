@@ -40,7 +40,7 @@ class CRDTN_GlobalUtils
             case "stalker":
                 return "CRDTN_Quests\\data\\themes\\stalker.edds";
         }
-
+        // IF YOU WANT TO ADD NEW THEME - CONTACT ME AND WE CAN MAKE IT 
         return "CRDTN_Quests\\data\\themes\\default.edds";
     }
 

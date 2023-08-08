@@ -33,7 +33,7 @@ class CRDTN_PluginBase : PluginBase
         EffectSound m_sound = SEffectManager.PlaySoundOnObject(soundSet, player);
         m_sound.SetSoundAutodestroy(true);
     }
-}
+};
 
 
 

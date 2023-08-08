@@ -1,9 +1,10 @@
 class CRDTN_NotificationUI : NotificationUI
 {
    
+    protected string m_NotificationElementPath = "CRDTN_Core/Layouts/Notifications/notification_element.layout";
+
     void CRDTN_NotificationUI()
     {
-        DebugPrint.LogAndTrace(CFG_CRDTN_Core_Prefix + " CRDTN_NotificationUI::CRDTN_NotificationUI() initializing CRDTN CORE");
         m_Root = GetGame().GetWorkspace().CreateWidgets("CRDTN_Core/Layouts/Notifications/notifications.layout");
         m_Spacer = m_Root.FindAnyWidget("NotificationSpacer");
         m_VoiceContent = m_Root.FindAnyWidget("VoiceContent");
@@ -12,16 +13,17 @@ class CRDTN_NotificationUI : NotificationUI
 
     override void AddNotification(NotificationRuntimeData data)
     {
-        DebugPrint.LogAndTrace(CFG_CRDTN_Core_Prefix + " CRDTN_NotificationUI::AddNotification() initializing CRDTN CORE");
-        Widget notification = GetGame().GetWorkspace().CreateWidgets("CRDTN_Core/Layouts/Notifications/notification_element.layout", m_NotificationContent);
+        // This can be changed based on the settings received from the server
+        Widget notification = GetGame().GetWorkspace().CreateWidgets(m_NotificationElementPath, m_NotificationContent);
+
 
         ImageWidget icon = ImageWidget.Cast(notification.FindAnyWidget("Image"));
         RichTextWidget title = RichTextWidget.Cast(notification.FindAnyWidget("Title"));
-
         if (data.GetIcon() != "")
+        {
             icon.LoadImageFile(0, data.GetIcon());
+        }
         title.SetText(data.GetTitleText());
-
         if (data.GetDetailText() != "")
         {
             Widget bottom_spacer = notification.FindAnyWidget("BottomSpacer");
@@ -32,9 +34,13 @@ class CRDTN_NotificationUI : NotificationUI
             bottom_spacer.Update();
             notification.Update();
         }
-
         m_Notifications.Insert(data, notification);
         UpdateTargetHeight();
+    }
+
+    void SetNotificationElementPath(string path)
+    {
+        m_NotificationElementPath = path;
     }
 };
 
