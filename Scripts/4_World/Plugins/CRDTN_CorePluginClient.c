@@ -5,6 +5,8 @@ class CRDTN_CorePluginClient : CRDTN_CorePluginBase
         if (type != CallType.Client)
             return;
 
+        DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Client::RPC_ServerConfigReceived()");
+
         Param1<ref CRDTN_Config> data;
         if (!ctx.Read(data))
         {
@@ -12,18 +14,17 @@ class CRDTN_CorePluginClient : CRDTN_CorePluginBase
         }
 
         m_Config = data.param1;
+        DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Client::RPC_ServerConfigReceived() config -> " + m_Config);
         if (m_Config == null)
         {
             return;
         }
         g_Game.SetCRDTNCoreConfig(m_Config);
-        // // Set the config also on client
-        // GetDayZGame().SetConfig(m_Config);
         if (!m_Config.CRDTN_IntroMusic)
         {
             return;
         }
-      
+        PlayIntroSong();
         DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Client::RPC_ServerConfigReceived() received config from server");
     }
 
@@ -37,7 +38,7 @@ class CRDTN_CorePluginClient : CRDTN_CorePluginBase
         {
             return;
         }
-        CRDTN_PluginBase.CRDTN_PlaySound(m_Config.CRDTN_IntroSoundSet, GetGame().GetPlayer());
+        CRDTN_PluginBase.CRDTN_PlaySound(m_Config.CRDTN_IntroSoundSet, PlayerBase.Cast(GetGame().GetPlayer()));
     }
 };
 

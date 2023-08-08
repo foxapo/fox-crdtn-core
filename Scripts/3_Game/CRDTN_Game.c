@@ -27,11 +27,8 @@ modded class DayZGame
 
     void SetCRDTNCoreConfig(ref CRDTN_Config cfg)
     {
-        if(IsClient())
-        {
-            m_CRDTN_Config = cfg;
-            m_CRDTN_Config.PrintData();
-            m_Notifications.SetNotificationLayout(m_CRDTN_Config.CRDTN_Notifications);
-        }
+        m_CRDTN_Config = cfg;
+        m_CRDTN_Config.PrintData();
+        m_Notifications.SetNotificationLayout(m_CRDTN_Config.CRDTN_Notifications);
     }
 }

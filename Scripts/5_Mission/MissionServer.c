@@ -21,7 +21,7 @@ modded class MissionServer
     /// @param identity 
     void SendWelcomeNotification(PlayerIdentity identity)
     {
-        NotificationSystem.SendNotificationToPlayerIdentityExtended(identity, 3,  "Welcome " + identity.GetName() + " !", "Welcome to " + GetCRDTN_CorePlugin().GetConfig().CRDTN_ServerName);
+        NotificationSystem.SendNotificationToPlayerIdentityExtended(identity, 3,  "Welcome survivor!", "Welcome to " + GetCRDTN_CorePluginServer().GetConfig().CRDTN_ServerName);
     }
 
     void SendMessageToPlayer(PlayerBase player)
