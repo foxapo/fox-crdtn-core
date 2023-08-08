@@ -1,12 +1,26 @@
-class CRDTN_ConfigLoader<Class T>
+class CRDTN_ConfigLoader<ref Class T>
 {
     static void Save(ref T dataInstance, string path)
     {
-        JsonFileLoader<T>.JsonSaveFile(path, dataInstance);
+        JsonFileLoader<ref T>.JsonSaveFile(path, dataInstance);
     }
 
     static void Load(string path, out T dataInstance)
     {
-        JsonFileLoader<T>.JsonLoadFile(path, dataInstance);
+        JsonFileLoader<ref T>.JsonLoadFile(path, dataInstance);
+    }
+
+    static bool Init(string path, out ref T dataInstance)
+    {
+        if (FileExist(path))
+        {
+            Load(path, dataInstance);
+            return true;
+        }
+        else
+        {
+            Save(dataInstance, path);
+            return false;
+        }
     }
 };

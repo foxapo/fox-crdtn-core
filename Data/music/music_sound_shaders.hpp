@@ -4,17 +4,6 @@
 // Tension_1_Draft02.mp3.ogg
 // Tension_2_Draft01.mp3.ogg
 
-class CRDTN_Core_SoundShader_Music_Base : baseCharacter_SoundShader
-{
-    volume = 1;
-    range = 20;
-    rangeCurve[] =
-        {
-            {0, 1},
-            {0.5, 0.69999999},
-            {1, 0}};
-};
-
 class CRDTN_Core_SoundShader_Music_Zone : CRDTN_Core_SoundShader_Music_Base
 {
     // Chernobyl Music Pack

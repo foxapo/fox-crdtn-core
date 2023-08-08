@@ -10,8 +10,7 @@ class CfgPatches
         requiredVersion = 0.1;
         requiredAddons[] = {
             "DZ_Data",
-            "DZ_Scripts",
-            "DZ_Sounds_Effects"
+            "DZ_Scripts"
         };
     };
 };
@@ -100,28 +99,4 @@ class Cfg_sUDE
             };
         };
     };
-};
-
-class CfgVehicles
-{
-};
-
-class CfgSlots
-{
-};
-
-class CfgWeapons
-{
-};
-
-class CfgSoundSets
-{
-    class baseCharacter_SoundSet;
-    #include "Data\music\music_sound_sets.hpp"
-};
-
-class CfgSoundShaders
-{
-    class baseCharacter_SoundShader;
-    #include "Data\music\music_sound_shaders.hpp"
 };

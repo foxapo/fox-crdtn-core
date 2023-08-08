@@ -1,8 +1,5 @@
 class CRDTN_NotificationUI : NotificationUI
 {
-   
-    protected string m_NotificationElementPath = "CRDTN_Core/Layouts/Notifications/notification_element.layout";
-
     void CRDTN_NotificationUI()
     {
         m_Root = GetGame().GetWorkspace().CreateWidgets("CRDTN_Core/Layouts/Notifications/notifications.layout");
@@ -14,9 +11,7 @@ class CRDTN_NotificationUI : NotificationUI
     override void AddNotification(NotificationRuntimeData data)
     {
         // This can be changed based on the settings received from the server
-        Widget notification = GetGame().GetWorkspace().CreateWidgets(m_NotificationElementPath, m_NotificationContent);
-
-
+        Widget notification = GetGame().GetWorkspace().CreateWidgets(m_NotificationLayoutPath, m_NotificationContent);
         ImageWidget icon = ImageWidget.Cast(notification.FindAnyWidget("Image"));
         RichTextWidget title = RichTextWidget.Cast(notification.FindAnyWidget("Title"));
         if (data.GetIcon() != "")
@@ -37,17 +32,20 @@ class CRDTN_NotificationUI : NotificationUI
         m_Notifications.Insert(data, notification);
         UpdateTargetHeight();
     }
-
-    void SetNotificationElementPath(string path)
-    {
-        m_NotificationElementPath = path;
-    }
 };
 
 modded class NotificationUI
 {
+    /// @brief Default CRDTN notification layout path
+    protected string m_NotificationLayoutPath = "CRDTN_Core/Layouts/Notifications/notification_element.layout";
+
     void NotificationUI()
     {
         Print(CFG_CRDTN_Core_Prefix + " NotificationUI::NotificationUI() initializing CRDTN CORE");
+    }
+
+    void SetNotificationLayout(string path)
+    {
+        m_NotificationLayoutPath = path;
     }
 }
