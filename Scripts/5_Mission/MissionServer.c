@@ -27,5 +27,7 @@ modded class MissionServer
     void SendMessageToPlayer(PlayerBase player)
     {
         player.MessageAction(" >> You're playing on a server powered by CRDTN Core << ");
+        if(GetCRDTN_CorePluginServer().GetConfig().CRDTN_IntroMusic)
+            GetCRDTN_CorePluginServer().PlaySoundOnClient(player,  GetCRDTN_CorePluginServer().GetConfig().CRDTN_IntroSoundSet);
     }
 };

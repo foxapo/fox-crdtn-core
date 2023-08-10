@@ -5,7 +5,24 @@ modded class DayZGame
 
     void DayZGame()
     {
-        Print(CFG_CRDTN_Core_Prefix + " Game::DayZGame() initializing CRDTN CORE");
+        Print(CFG_CRDTN_Core_Prefix + " Game::DayZGame() CRDTN CORE");
+    
+        #ifdef CRDTN_Sounds
+        Print(CFG_CRDTN_Core_Prefix + " Game::DayZGame() CRDTN_SOUNDS enabled");
+        #endif
+
+        #ifdef CRDTN_Gui
+        Print(CFG_CRDTN_Core_Prefix + " Game::DayZGame() CRDTN_GUI enabled");
+        #endif
+
+        #ifdef CRDTN_Quests
+        Print(CFG_CRDTN_Core_Prefix + " Game::DayZGame() CRDTN_QUESTS enabled");
+        #endif
+
+        #ifdef CRDTN_Factions
+        Print(CFG_CRDTN_Core_Prefix + " Game::DayZGame() CRDTN_FACTIONS enabled");
+        #endif
+
         m_CRDTN_EventHandler = new CRDTN_EventHandler();
     }
     

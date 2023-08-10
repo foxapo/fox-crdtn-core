@@ -1,6 +1,6 @@
 class CRDTN_Core_SoundSet_Music_Zone : CRDTN_Core_SoundSet_Music_Base
 {
-    volumeFactor = 0.3;
+    volumeFactor = 0.2;
     soundShaders[] = {"CRDTN_Core_SoundShader_Music_Zone"};
 };
 class CRDTN_Core_SoundSet_Music_InvisibleThreat : CRDTN_Core_SoundSet_Music_Base

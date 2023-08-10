@@ -26,17 +26,7 @@ class CRDTN_PluginBase : PluginBase
     /// @param player 
     static void CRDTN_PlaySound(string soundSet, PlayerBase player)
     {
-        if(soundSet == "")
-        {
-            return;
-        }
         EffectSound m_sound = SEffectManager.PlaySoundOnObject(soundSet, player);
         m_sound.SetSoundAutodestroy(true);
     }
 };
-
-
-
-
-
-
