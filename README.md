@@ -45,6 +45,36 @@ CRDTN_Core_SoundSet_Music_Tension2
 CRDTN_Core_SoundSet_Music_OldOne
 ```
 
+### Usable font
+
+If you like the fond of CRDTN mods, you can search for **Rajdhani** or use following variants of font: 
+```
+// Light
+CRDTN_Core/data/fonts/Rajdhani-Light/Rajdhani-Light
+CRDTN_Core/data/fonts/Rajdhani-Light/Rajdhani-Light16
+CRDTN_Core/data/fonts/Rajdhani-Light/Rajdhani-Light20
+CRDTN_Core/data/fonts/Rajdhani-Light/Rajdhani-Light22
+CRDTN_Core/data/fonts/Rajdhani-Light/Rajdhani-Light24
+CRDTN_Core/data/fonts/Rajdhani-Light/Rajdhani-Light26
+CRDTN_Core/data/fonts/Rajdhani-Light/Rajdhani-Light28
+// Medium
+CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium12
+CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium14
+CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium16
+CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium22
+CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium28
+CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium48
+CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium58
+// Bold
+CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold12
+CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold14
+CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold16
+CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold22
+CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold28
+CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold48
+CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold58
+```
+
 **Documentation** **https://dayz.foxapo.com/mods/crdtn-core**
 
 Thank you for checking out my Mod. Creating and maintaining mods takes time and effort, but I enjoy every moment of it. If you've found my Mod useful, entertaining, or it has enhanced your gaming experience in any way, and you feel inclined to support my work, I would sincerely appreciate any contribution you can make.
