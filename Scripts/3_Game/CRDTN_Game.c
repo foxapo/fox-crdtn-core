@@ -46,6 +46,13 @@ modded class DayZGame
     {
         m_CRDTN_Config = cfg;
         m_CRDTN_Config.PrintData();
-        m_Notifications.SetNotificationLayout(m_CRDTN_Config.CRDTN_Notifications);
+        if(m_CRDTN_Config.CRDTN_UseVanillaNotifications)
+        {
+            m_Notifications.SetVanillaNotifications();
+        }
+        else
+        {
+            m_Notifications.SetNotificationLayout(m_CRDTN_Config.CRDTN_NotificationsWrapper, m_CRDTN_Config.CRDTN_Notifications);
+        }
     }
 }

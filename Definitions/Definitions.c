@@ -1,1 +1,0 @@
-#define CRDTN_Core

@@ -13,6 +13,12 @@ modded class MissionServer
         {
             GetCRDTN_CorePluginServer().OnPlayerConnected(identity, player);
         }
+
+        if(GetCRDTN_CorePluginServer().GetConfig().CRDTN_DisableIntroNotification)
+        {
+            return;
+        }
+
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(SendWelcomeNotification, 5000, false, identity);
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(SendMessageToPlayer, 5000, false, player);
     }
@@ -30,4 +36,11 @@ modded class MissionServer
         if(GetCRDTN_CorePluginServer().GetConfig().CRDTN_IntroMusic)
             GetCRDTN_CorePluginServer().PlaySoundOnClient(player,  GetCRDTN_CorePluginServer().GetConfig().CRDTN_IntroSoundSet);
     }
+};
+
+
+modded class MissionServer
+{
+    override void SendWelcomeNotification(PlayerIdentity identity);
+    override void SendMessageToPlayer(PlayerBase player);
 };
