@@ -3,19 +3,34 @@ modded class MissionServer
     override void OnInit()
     {
         super.OnInit();
-        DebugUtils.Log(": CRDTN_Core Init Server");
+        DebugUtils.Log(CFG_CRDTN_Core_Prefix + ": MissionServer::OnInit()");
     }
 
+    /// @brief Called when connected or respawned
+    /// @param player 
+    /// @param identity 
+    /// @return 
     override void InvokeOnConnect(PlayerBase player, PlayerIdentity identity)
     {
         super.InvokeOnConnect(player, identity);
-        if(GetCRDTN_CorePluginServer())
+        if(!GetCRDTN_CorePluginServer())
         {
-            GetCRDTN_CorePluginServer().OnPlayerConnected(identity, player);
+            return;
+        }
+
+        // Send the server config to player
+        DebugUtils.Log(CFG_CRDTN_Core_Prefix + ": Sending config to player");
+        GetCRDTN_CorePluginServer().OnPlayerConnected(identity, player);
+
+        if(!GetCRDTN_CorePluginServer().GetConfig())
+        {
+            DebugUtils.Log(CFG_CRDTN_Core_Prefix + ": Intro notification disabled");
+            return;
         }
 
         if(GetCRDTN_CorePluginServer().GetConfig().CRDTN_DisableIntroNotification)
         {
+            DebugUtils.Log(CFG_CRDTN_Core_Prefix + ": Intro notification disabled");
             return;
         }
 
@@ -27,20 +42,12 @@ modded class MissionServer
     /// @param identity 
     void SendWelcomeNotification(PlayerIdentity identity)
     {
-        NotificationSystem.SendNotificationToPlayerIdentityExtended(identity, 3,  "Welcome survivor!", "Welcome to " + GetCRDTN_CorePluginServer().GetConfig().CRDTN_ServerName);
+        DebugUtils.Log(CFG_CRDTN_Core_Prefix + ": CRDTN_Core Sending welcome notification");
+        NotificationSystem.SendNotificationToPlayerIdentityExtended(identity, 3,  "Welcome survivor!", "Welcome to " + GetCRDTN_CorePluginServer().GetConfig().CRDTN_ServerName, "set:ccgui_enforce image:MapUserMarker");
     }
 
     void SendMessageToPlayer(PlayerBase player)
     {
         player.MessageAction(" >> You're playing on a server powered by CRDTN Core << ");
-        if(GetCRDTN_CorePluginServer().GetConfig().CRDTN_IntroMusic)
-            GetCRDTN_CorePluginServer().PlaySoundOnClient(player,  GetCRDTN_CorePluginServer().GetConfig().CRDTN_IntroSoundSet);
     }
-};
-
-
-modded class MissionServer
-{
-    override void SendWelcomeNotification(PlayerIdentity identity);
-    override void SendMessageToPlayer(PlayerBase player);
 };

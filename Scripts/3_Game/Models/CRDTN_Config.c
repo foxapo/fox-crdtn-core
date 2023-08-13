@@ -8,7 +8,7 @@ class CRDTN_Config
     bool   CRDTN_DisableIntroNotification = false;
     bool   CRDTN_Debug                    = true;
     bool   CRDTN_IntroMusic               = true;
-
+    
     void PrintData()
     {
         DebugUtils.Log(CRDTN_ServerName);

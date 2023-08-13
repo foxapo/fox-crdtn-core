@@ -5,23 +5,15 @@ class CRDTN_CorePluginServer : CRDTN_CorePluginBase
         DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Server::CRDTN_CorePluginServer()");
     }
 
-    override void InitRPCs()
+    override void InitData()
     {
-        return;
-    }
-
-    override void ParseData()
-    {
-        if(CRDTN_ConfigLoader<CRDTN_Config>.Init("$profile:CRDTN\\CRDTN_Core.json", m_Config))
-        {
-            DebugUtils.Log("Loaded from file CRDTN_Core.json");
-            m_Config.PrintData();
-        }
+        m_Config = GetDayZGame().GetConfig();
+        DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Set config from DayZGame");
     }
 
     void OnPlayerConnected(PlayerIdentity identity, PlayerBase player)
-    {   
-        GetRPCManager().SendRPC(CFG_CRDTN_Core_Prefix, "RPC_ServerConfigReceived", new Param1<CRDTN_Config>(m_Config), false, identity);
+    {
+        GetRPCManager().SendRPC(CFG_CRDTN_Core_Prefix, "RPC_ServerConfigReceived", new Param1<ref CRDTN_Config>(m_Config), false, identity);
     }
 
     void PlaySoundOnClient(PlayerBase player, string soundSetName)

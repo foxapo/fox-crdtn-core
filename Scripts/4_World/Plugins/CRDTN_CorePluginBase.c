@@ -7,16 +7,7 @@ class CRDTN_CorePluginBase : CRDTN_PluginBase
     {
         GetRPCManager().AddRPC(CFG_CRDTN_Core_Prefix, "RPC_ServerConfigReceived", this, SingleplayerExecutionType.Both);
         GetRPCManager().AddRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClient", this, SingleplayerExecutionType.Both);
-    }
-
-    override void InitData()
-    {
-        m_Config = new CRDTN_Config();
-    }
-    
-    override void ParseData()
-    {
-        CRDTN_ConfigLoader<ref CRDTN_Config>.Init("$profile:CRDTN\\CRDTN_Core.json", m_Config);
+        GetRPCManager().AddRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClientObject", this, SingleplayerExecutionType.Both);
     }
 
     CRDTN_Config GetConfig()
