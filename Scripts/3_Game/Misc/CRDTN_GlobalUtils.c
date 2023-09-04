@@ -35,6 +35,8 @@ class CRDTN_GlobalUtils
     {
         switch(key)
         {
+            case "default-orange":
+                return "CRDTN_Quests\\data\\themes\\default-orange.png";
             case "default":
                 return "CRDTN_Quests\\data\\themes\\default.edds";
             case "stalker":
@@ -44,4 +46,21 @@ class CRDTN_GlobalUtils
         return "CRDTN_Quests\\data\\themes\\default.edds";
     }
 
+    /// @brief Transform the given json data string from Rest-API response to a valid Enum type of RestApiRequestType
+    /// @param value 
+    /// @return value of RestApiRequestType enum
+    static RestApiRequestType GetRequestType(string value, out string unique_id)
+    {
+        unique_id = "";
+        int requestTypeStartIndex = value.IndexOf("\"requestType\":") + 15;
+        int requestTypeEndIndex = value.IndexOfFrom(requestTypeStartIndex, "\"");
+
+        int uniqueIdStartIndex = value.IndexOf("\"uniqueId\":") + 12;
+        int uniqueIdEndIndex = value.IndexOfFrom(uniqueIdStartIndex, "\"");
+
+        string requestTypeString = value.Substring(requestTypeStartIndex, requestTypeEndIndex - requestTypeStartIndex);
+        unique_id = value.Substring(uniqueIdStartIndex, uniqueIdEndIndex - uniqueIdStartIndex);
+
+        return typename.StringToEnum(RestApiRequestType, requestTypeString);
+    }
 };
