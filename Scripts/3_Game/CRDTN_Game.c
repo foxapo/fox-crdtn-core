@@ -23,6 +23,14 @@ modded class DayZGame
         Print(CFG_CRDTN_Core_Prefix + " Game::DayZGame() CRDTN_FACTIONS enabled");
         #endif
 
+        #ifdef CRDTN_Krabice
+        Print(CFG_CRDTN_Core_Prefix + " Game::DayZGame() CRDTN_KRABICE enabled");
+        #endif
+
+        #ifdef CRDTN_Rad
+        Print(CFG_CRDTN_Core_Prefix + " Game::DayZGame() CRDTN_Radiation enabled");
+        #endif
+
         m_CRDTN_EventHandler = new CRDTN_EventHandler();
 
         if(IsServer())
@@ -47,7 +55,12 @@ modded class DayZGame
             }
             CRDTN_Config.Load(m_CRDTN_Config);
         }
+
+        CRDTN_OnGameInit();
     }
+
+    // Use this for override to do some magic after game init
+    void CRDTN_OnGameInit();
     
     CRDTN_EventHandler CRDTNGetEventHandler()
     {
