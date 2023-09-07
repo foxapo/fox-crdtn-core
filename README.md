@@ -8,13 +8,15 @@ This mod is important for the other CRDTN mods to get things organized and consi
 
 ## Features in nutshell: 
 
-- Notifications 
+- Rest Api Wrapper [https://dayz.foxapo.com/mods/crdtn-core/rest-api]
+- File Logger [https://dayz.foxapo.com/mods/crdtn-core/file-logger]
+- Event handler [https://dayz.foxapo.com/mods/crdtn-core/event-handler]
+- Notifications UI [https://dayz.foxapo.com/mods/crdtn-core/notifications-ui]
 - Sound upon login to game 
-- Event handler 
 - Generic UI List Entry and UI Menu
-- [In Progress] Preparation of Post Processing requester
-- [In Progress] Preparation of Camera utility class for easier manipulation with camera
-
+- [TODO] Preparation of Post Processing requester
+- [TODO] Preparation of Camera utility class for easier manipulation with camera
+- [TODO] Support for Discord hooks
 
 ### Config $profiles/CRDTN/CRDTN_Core.json
 ```json
