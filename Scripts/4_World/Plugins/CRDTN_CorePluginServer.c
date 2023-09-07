@@ -8,6 +8,7 @@ class CRDTN_CorePluginServer : CRDTN_CorePluginBase
     override void InitData()
     {
         m_Config = GetDayZGame().GetConfig();
+        AdminUtils.AdminIds = m_Config.CRDTN_AdminList;
         DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Set config from DayZGame");
     }
 
@@ -19,6 +20,11 @@ class CRDTN_CorePluginServer : CRDTN_CorePluginBase
     void PlaySoundOnClient(PlayerBase player, string soundSetName)
     {
         GetRPCManager().SendRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClient", new Param1<string>(soundSetName), false, player.GetIdentity());
+    }
+
+    void InitMission(string serverName)
+    {
+        DebugUtils.LogGame(serverName, " Server::CRDTN_CorePluginServer():InitMission()");
     }
 };
 
