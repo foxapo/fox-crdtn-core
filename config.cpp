@@ -30,3 +30,27 @@ class CfgMods
         };
     };
 };
+
+class CfgVehicles
+{
+
+    class Inventory_Base;
+    class Paper : Inventory_Base{};
+    class CRDTN_KeyBase : Paper
+    {
+        scope = 0;
+        inventorySlot[] = {""};
+        itemSize[] = {2, 1};
+        stackedUnit = "pc.";
+        quantityBar = 1;
+        canBeSplit=0;
+        weight = 20;
+        varQuantityInit = 1;
+        varQuantityMin = 0;
+        varQuantityMax = 1;
+        varQuantityDestroyOnMin = 1;
+        destroyOnEmpty = 1;
+        weightPerQuantityUnit = 0.0;
+    };
+
+};
