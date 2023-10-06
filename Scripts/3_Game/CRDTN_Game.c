@@ -33,15 +33,15 @@ modded class DayZGame
 
         m_CRDTN_EventHandler = new CRDTN_EventHandler();
 
-        if(IsServer())
+        if(!FileExist(CFG_CRDTN_Root_Folder))
         {
-            if(!FileExist(CFG_CRDTN_Root_Folder))
-            {
-                DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Game::DayZGame() Creating new root folder: " + CFG_CRDTN_Root_Folder);
-                // Intiialize the folder if necessary 
-                MakeDirectory(CFG_CRDTN_Root_Folder);
-            }
+            DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Game::DayZGame() Creating new root folder: " + CFG_CRDTN_Root_Folder);
+            // Intiialize the folder if necessary 
+            MakeDirectory(CFG_CRDTN_Root_Folder);
+        }
 
+        if(IsServer() && !IsClient())
+        {
             m_CRDTN_Config = new CRDTN_Config();
             if(!FileExist(CFG_CRDTN_ConfigPath))
             {
@@ -67,7 +67,7 @@ modded class DayZGame
         return m_CRDTN_EventHandler;
     }
 
-    CRDTN_Config GetConfig()
+    CRDTN_Config CRDTN_GetConfig()
     {
         return m_CRDTN_Config;
     }

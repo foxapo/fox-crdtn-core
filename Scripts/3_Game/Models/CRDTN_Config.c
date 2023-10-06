@@ -1,14 +1,15 @@
 class CRDTN_Config
 {
-    string CRDTN_ServerName               = "<< CRDTN Server | PVP/PVE | 1PP >>";
-    string CRDTN_IntroSoundSet            = "CRDTN_Core_SoundSet_Music_Zone";
-    string CRDTN_NotificationsWrapper     = "CRDTN_Core/Layouts/Notifications/notifications.layout";
-    string CRDTN_Notifications            = "CRDTN_Core/Layouts/Notifications/notification_element.layout";
-    bool   CRDTN_UseVanillaNotifications  = false;
-    bool   CRDTN_DisableIntroNotification = false;
-    bool   CRDTN_Debug                    = true;
-    bool   CRDTN_IntroMusic               = true;
-    ref    set<string> CRDTN_AdminList    = new ref set<string>();
+    string CRDTN_ServerName                     = ">> SERVER NAME <<";
+    string CRDTN_IntroSoundSet                  = "CRDTN_Core_SoundSet_Music_Zone";
+    string CRDTN_NotificationsWrapper           = "CRDTN_Core/Layouts/Notifications/notifications.layout";
+    string CRDTN_Notifications                  = "CRDTN_Core/Layouts/Notifications/notification_element.layout";
+    bool   CRDTN_UseVanillaNotifications        = false;
+    bool   CRDTN_DisableIntroNotification       = false;
+    bool   CRDTN_Debug                          = true;
+    bool   CRDTN_IntroMusic                     = true;
+    ref    set<string> CRDTN_AdminList          = new ref set<string>();
+    ref    map<string, string> CRDTN_Packages = new ref map<string, string>();
     
     void PrintData()
     {
@@ -34,7 +35,24 @@ class CRDTN_Config
         {
             dataInstance.CRDTN_AdminList = new set<string>();
             dataInstance.CRDTN_AdminList.Insert("avCdzuTN2GEbHlqfPk2wXFvUyxW7CVe50bFIWgDCvN0=");
+            dataInstance.CRDTN_Packages = new map<string, string>();
+            dataInstance.CRDTN_Packages.Insert("COMMENT", "HERE COMES THE URLS FOR THE APIs - For example: http://localhost:9999/api");
+            dataInstance.CRDTN_Packages.Insert("service-api", "endpoint");
             JsonFileLoader<ref CRDTN_Config>.JsonSaveFile(CFG_CRDTN_ConfigPath, dataInstance);
         }
+    }
+
+    string GetApi(string key)
+    {
+        if(!CRDTN_Packages)
+        {
+            return "";
+        }
+
+        if(CRDTN_Packages.Contains(key))
+        {
+            return CRDTN_Packages.Get(key);
+        }
+        return "";
     }
 };

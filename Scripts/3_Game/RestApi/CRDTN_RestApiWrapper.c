@@ -25,7 +25,6 @@ class CRDTN_RestApiWrapper
         return m_EventHandler.GetEventInvoker(requestTypeString);
     }
 
-    // ! Used to distinguish between multiple requests of the same type
     ScriptInvoker AddEvent(RestApiRequestType requestType, string unique_id)
     {
         string requestTypeString = typename.EnumToString(RestApiRequestType, requestType);
@@ -56,7 +55,6 @@ class CRDTN_RestApiWrapper
 
     void ExecuteRequest(string url, string method, string data)
     {        
-        DebugUtils.Log("[CRDTN_RestApiWrapper]: ExecuteRequest() - " + url + " " + method + " " + data);
         RestContext ctx = GetGame().GetRestApi().GetRestContext(m_URL);
         ctx.SetHeader("application/json");
         switch(method)

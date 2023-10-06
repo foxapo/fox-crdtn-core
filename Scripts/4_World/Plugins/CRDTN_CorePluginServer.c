@@ -7,7 +7,7 @@ class CRDTN_CorePluginServer : CRDTN_CorePluginBase
 
     override void InitData()
     {
-        m_Config = GetDayZGame().GetConfig();
+        m_Config = GetDayZGame().CRDTN_GetConfig();
         AdminUtils.AdminIds = m_Config.CRDTN_AdminList;
         DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Set config from DayZGame");
     }
