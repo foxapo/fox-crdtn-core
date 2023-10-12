@@ -1,0 +1,123 @@
+WrapSpacerWidgetClass ListEntry {
+ position 0 0
+ size 1 38
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 1
+ scriptclass "UI_CRDTNListEntry"
+ Padding 0
+ Margin 0
+ "Size To Content H" 1
+ "Size To Content V" 1
+ {
+  PanelWidgetClass Content {
+   ignorepointer 1
+   color 0.0431 0.0431 0.0431 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   scaled 0
+   style blank
+   {
+    ButtonWidgetClass Button {
+     color 0.2 0.2588 0.3569 1
+     position 0 0
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+    }
+    TextWidgetClass PrimaryText {
+     clipchildren 1
+     ignorepointer 1
+     size 0.8 0.5
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     text "Quest Entry "
+     font "gui/fonts/etelkatextpro16"
+     "text offset" 20 0
+     "exact text" 0
+     "size to text h" 0
+     "size to text v" 0
+     "text valign" center
+    }
+    TextWidgetClass SecondaryText {
+     ignorepointer 1
+     color 0.4392 0.4392 0.4392 1
+     position 0 0
+     size 0.8 0.52096
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     style Normal
+     text "Kill quest"
+     font "gui/fonts/etelkatextpro16"
+     "text color" 0.4 0.4 0.4 1
+     "text offset" 20 0
+     "exact text" 0
+     "size to text h" 0
+     "size to text v" 0
+     "text valign" center
+    }
+    PanelWidgetClass EntryImageWrapper {
+     ignorepointer 1
+     position 0 0
+     size 0.2 1
+     halign right_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     {
+      ImageWidgetClass EntryIcon {
+       ignorepointer 1
+       position 0.1 0
+       size 40 40
+       halign right_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scaled 0
+       fixaspect fixwidth
+       imageTexture "{247072379262164B}CRDTN_Quests/data/images/icons/51.edds"
+       mode blend
+       "src alpha" 1
+       stretch 1
+      }
+     }
+    }
+    ImageWidgetClass Selected {
+     visible 1
+     ignorepointer 1
+     color 0.5882 0.5647 0.0588 1
+     size 0.03 1
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+    }
+   }
+  }
+ }
+}

@@ -17,3 +17,16 @@ enum CRDTN_ETriggerType
 {
     PSI
 };
+
+enum CRDTN_ECurrencyType
+{
+    _NONE,
+    CZECH_CROWNS,
+    EURO
+};
+
+enum CRDTN_EMenuContext
+{
+    _NONE,
+    PLAYER
+};

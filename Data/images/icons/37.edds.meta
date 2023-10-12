@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{3E1AD1BC35BD81CA}CRDTN_Core/Data/images/icons/37.edds"
+ Author "ocelot"
+ ChangeDate -2040795319
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "37.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

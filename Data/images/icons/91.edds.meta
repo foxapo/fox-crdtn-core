@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{BC156296FEC4B4C6}CRDTN_Core/Data/images/icons/91.edds"
+ Author "ocelot"
+ ChangeDate -2105282743
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "91.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

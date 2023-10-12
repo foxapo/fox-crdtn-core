@@ -1,0 +1,401 @@
+FrameWidgetClass rootFrame {
+ size 2560 1444
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ scaled 0
+ {
+  ImageWidgetClass Background {
+   ignorepointer 1
+   position 0 0
+   size 0.66 0.74
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   scaled 0
+   imageTexture "{3EAFE0E7CB0D39E1}CRDTN_Quests/data/themes/default.edds"
+   mode blend
+   "src alpha" 1
+   stretch 1
+   filter 0
+   {
+    ImageWidgetClass Wrapper {
+     visible 1
+     clipchildren 0
+     ignorepointer 1
+     color 1 1 1 0
+     position -0.00084 -0.00102
+     size 0.78683 0.77081
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     mode blend
+     stretch 1
+     {
+      PanelWidgetClass Top {
+       ignorepointer 1
+       position 14.864 0.02297
+       size 0.29048 0.0712
+       hexactpos 1
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       scaled 0
+       {
+        ImageWidgetClass BG {
+         visible 0
+         ignorepointer 1
+         keepsafezone 0
+         color 0.1882 0.1882 0.1882 1
+         position 0 0
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         scaled 1
+         image0 ""
+         mode opaque
+         "src alpha" 1
+         "no wrap" 0
+         stretch 0
+         filter 1
+         "Transition width" 0.201
+        }
+        TextWidgetClass ContextHeaderText {
+         ignorepointer 1
+         position 0 0
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "CONTEXT MENU"
+         font "gui/fonts/etelkatextpro28"
+         "text offset" 30 0
+         "text valign" center
+        }
+       }
+      }
+      PanelWidgetClass Left {
+       disabled 0
+       clipchildren 0
+       inheritalpha 0
+       ignorepointer 1
+       position 6.61989 0.13757
+       size 0.3128 0.8543
+       hexactpos 1
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       scaled 0
+       style blank
+       {
+        ImageWidgetClass BG0 {
+         visible 0
+         inheritalpha 0
+         ignorepointer 1
+         color 0.1294 0.1294 0.1294 0.5725
+         position 0 0
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         scaled 1
+         mode blend
+        }
+        TextListboxWidgetClass AvailableTaskListbox {
+         visible 0
+         clipchildren 0
+         ignorepointer 0
+         color 1 0.6039 0 1
+         position -0.45111 0.54497
+         size 0.4 0.4
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         scaled 0
+         style Default
+         "title visible" 0
+         colums "Available tasks;100"
+         lines 1
+         "highlight row" 0
+         font "CRDTN_Core/data/fonts/Victor-Mono/VictorMono-Regular22"
+         {
+          TextWidgetClass AvailableText {
+           ignorepointer 1
+           position 0 -24
+           size 0.8 24
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Available Quests"
+           font "CRDTN_Core/data/fonts/Victor-Mono/VictorMono-Regular22"
+          }
+         }
+        }
+        TextListboxWidgetClass TakenTaskListbox {
+         visible 0
+         clipchildren 0
+         ignorepointer 0
+         color 1 0.6039 0 1
+         position -0.45155 0.48168
+         size 0.4 0.4
+         valign bottom_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         scaled 0
+         style Default
+         "no focus" 0
+         "title visible" 0
+         colums "Taken tasks;100"
+         lines 1
+         "highlight row" 0
+         font "CRDTN_Core/data/fonts/Victor-Mono/VictorMono-Regular22"
+         {
+          TextWidgetClass TakenText {
+           ignorepointer 1
+           position 0 -24
+           size 0.8 24
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Active Quests"
+           font "CRDTN_Core/data/fonts/Victor-Mono/VictorMono-Regular22"
+          }
+         }
+        }
+        ScrollWidgetClass Navigation {
+         ignorepointer 0
+         position 0 4.9398
+         size 0.98065 0.98103
+         halign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         scaled 0
+         style Colorable
+         "Scrollbar V" 1
+         {
+          GridSpacerWidgetClass NavigationGrid {
+           ignorepointer 1
+           position 0 0
+           size 1 0.97
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 0
+           Padding 0
+           Margin 0
+           "Size To Content V" 1
+           content_halign center
+           Columns 1
+           Rows 1
+          }
+         }
+        }
+       }
+      }
+      PanelWidgetClass BodyContent {
+       visible 1
+       clipchildren 0
+       inheritalpha 0
+       ignorepointer 0
+       color 1 1 1 0.7804
+       position 0.3427 0.13227
+       size 0.65126 0.8544
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        ImageWidgetClass BG1 {
+         visible 0
+         ignorepointer 1
+         color 0.1294 0.1294 0.1294 0.698
+         position 0 0
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         mode blend
+        }
+        PanelWidgetClass ContentHeader {
+         ignorepointer 1
+         position -0.00527 -0.1376
+         size 1.00487 0.10591
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         scaled 0
+         {
+          TextWidgetClass ContentHeaderText {
+           ignorepointer 0
+           position 0.0006 -0.0138
+           size 0.98 0.7
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           text "NAME"
+           font "gui/fonts/etelkatextpro22"
+           "exact text" 0
+           "size to text h" 0
+           "size to text v" 0
+           "text valign" center
+          }
+          ButtonWidgetClass TrackToggle {
+           visible 0
+           ignorepointer 1
+           size 60 60
+           halign right_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           style Empty
+           {
+            ImageWidgetClass ToggleIcon {
+             ignorepointer 1
+             position 0 0
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             imageTexture "{1D11F57FDCF9CEB4}CRDTN_Quests/data/images/icons/70.edds"
+             mode blend
+             "src alpha" 1
+             stretch 1
+            }
+           }
+          }
+         }
+        }
+        ScrollWidgetClass BodyScrollWidget {
+         clipchildren 1
+         ignorepointer 0
+         color 0.1333 0.1333 0.1333 1
+         position 0.00089 0.06371
+         size 0.97911 0.73442
+         halign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         "Scrollbar V" 1
+         {
+          GridSpacerWidgetClass ContentGrid {
+           ignorepointer 0
+           size 1 1
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 0
+           Padding 0
+           Margin 0
+           "Size To Content V" 1
+           content_halign center
+           Columns 1
+           Rows 2
+          }
+         }
+        }
+        GridSpacerWidgetClass FooterGrid {
+         ignorepointer 1
+         color 1 1 1 0
+         size 1 70
+         halign center_ref
+         valign bottom_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 1
+         scaled 0
+         Padding 10
+         Margin 10
+         "Size To Content V" 1
+         content_halign right
+         {
+          ButtonWidgetClass PrimaryActionButton {
+           color 0.1608 0.2627 0.3647 1
+           position 30 0
+           size 0.1 1
+           halign right_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           scaled 0
+           scriptclass "UI_BtnHover"
+           style InventoryActionMenu
+           text "Take"
+           font "gui/fonts/etelkatextpro16"
+           {
+            ImageWidgetClass Btn_BG {
+             ignorepointer 1
+             color 0.3137 0.3137 0.3137 1
+             position 0 0
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             scaled 0
+             imageTexture "{D63F4936FF4C9DF0}CRDTN_Quests/data/pattern.edds"
+             mode blend
+             "src alpha" 1
+             "no wrap" 0
+             stretch 1
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

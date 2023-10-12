@@ -12,18 +12,13 @@ class UI_CRDTNListEntry extends ScriptedWidgetEventHandler
     private string          _SecondaryText;
     private string          _EntryIcon;
 
-    ref ScriptInvoker EListEntrySelected = new ScriptInvoker();
+    ref ScriptInvoker EListEntrySelected;
     ref Param ContextData;
 
     void OnInit(ref Param param)
     {
         ContextData = param;
     }
-    // ~void OnDestroy()
-    // {
-    //     if(EListEntrySelected)
-    //         EListEntrySelected.Clear();
-    // }
 
     void OnWidgetScriptInit(Widget w)
 	{
@@ -37,11 +32,19 @@ class UI_CRDTNListEntry extends ScriptedWidgetEventHandler
 		w.SetHandler(this);
 	}
 
-    void SetData(string primaryText, string secondaryText, string entryIconPath)
+    void SetData(string primaryText, string secondaryText, string entryIconPath, ref ScriptInvoker listEntrySelected)
     {
         _PrimaryText               = primaryText;
         _SecondaryText             = secondaryText;
-        _EntryIcon                 = entryIconPath;
+        if(entryIconPath == "")
+        {
+            _EntryIcon = "CRDTN_Quests/data/images/icons/50.edds";
+        }
+        else
+        {
+            _EntryIcon                 = entryIconPath;
+        }
+        EListEntrySelected         = listEntrySelected;
         RefreshUI();
     }
    
