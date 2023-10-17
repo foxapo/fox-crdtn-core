@@ -14,7 +14,7 @@ class CRDTN_NPCSurvivorBase extends SurvivorBase
         super.SetActions();
         RemoveAction(ActionCheckPulse);
         RemoveAction(ActionCheckPulseTarget);
-        if(m_IsQuestGiver)
+        if(m_IsQuestGiver && !IsPlayer())
         {
             AddAction(ActionOpenQuests);
         }
@@ -49,11 +49,13 @@ class CRDTN_NPCSurvivorBase extends SurvivorBase
         }
     }
 
-
-
     override void EEInit()
     {
         super.EEInit();
+        if(IsPlayer())
+        {
+            return;
+        }
         CRDTN_NPCInit();
     }
 
