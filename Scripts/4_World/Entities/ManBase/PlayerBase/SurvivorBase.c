@@ -2,7 +2,7 @@ modded class SurvivorBase
 {
     protected bool m_IsQuestGiver = false;
     protected string m_GiverId = "";
-    protected string m_Name = "";
+    protected string m_NpcName = "";
     protected string m_ActionText = "";
 
 
@@ -17,7 +17,14 @@ modded class SurvivorBase
 
     override string GetDisplayName()
     {
-        return m_Name;
+        if(m_IsQuestGiver)
+        {
+            return m_NpcName;
+        }
+        else
+        {
+            return super.GetDisplayName();
+        }
     }
 
     string GetActionText()
@@ -37,7 +44,7 @@ modded class SurvivorBase
         {
             return;
         }
-        GetGame().RPCSingleParam(this, CRDTN_RPC_NPC.SYNC_NPC, new Param2<string, string>(m_Name, m_GiverId), true);
+        GetGame().RPCSingleParam(this, CRDTN_RPC_NPC.SYNC_NPC, new Param2<string, string>(m_NpcName, m_GiverId), true);
     }
 
     void EquipCRDTN_Item(CRDTN_Item item)
