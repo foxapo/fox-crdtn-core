@@ -53,6 +53,7 @@ modded class MissionServer
     void SendMessageToPlayer(PlayerBase player)
     {
         player.MessageAction(" >> You're playing on a server powered by CRDTN Core << ");
+        // GetCRDTN_CorePluginServer().PlaySoundOnClient(player, "CRDTN_SoundSet_StalkerSounds_Pda_Welcome");
     }
 
     /// @brief CREDITS: VPP ADMIN TOOLS 

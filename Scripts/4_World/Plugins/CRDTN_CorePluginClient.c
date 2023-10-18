@@ -70,13 +70,13 @@ class CRDTN_CorePluginClient: CRDTN_CorePluginBase
         }
 
         DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Client::RPC_PlaySoundOnClientObject()");
-        Param1<string> data;
+        Param2<Object, string> data;
         if (!ctx.Read(data))
         {
             return;
         }
 
-        CRDTN_PluginBase.CRDTN_PlaySound(data.param1, target);
+        CRDTN_PluginBase.CRDTN_PlaySound(data.param2, data.param1);
     }
 
     /* --------------------------------------------------    INTERNAL    -------------------------------------------------- */

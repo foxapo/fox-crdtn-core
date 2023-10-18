@@ -101,35 +101,128 @@ class CfgVehicles
     class SurvivorF_Naomi;
     class SurvivorF_Baty;
 
-    class CRDTN_SurvivorM_Mirek : SurvivorM_Mirek{};
-    class CRDTN_SurvivorM_Boris : SurvivorM_Boris{};
-    class CRDTN_SurvivorM_Cyril : SurvivorM_Cyril{};
-    class CRDTN_SurvivorM_Denis : SurvivorM_Denis{};
-    class CRDTN_SurvivorM_Elias : SurvivorM_Elias{};
-    class CRDTN_SurvivorM_Francis : SurvivorM_Francis{};
-    class CRDTN_SurvivorM_Guo : SurvivorM_Guo{};
-    class CRDTN_SurvivorM_Hassan : SurvivorM_Hassan{};
-    class CRDTN_SurvivorM_Indar : SurvivorM_Indar{};
-    class CRDTN_SurvivorM_Jose : SurvivorM_Jose{};
-    class CRDTN_SurvivorM_Kaito : SurvivorM_Kaito{};
-    class CRDTN_SurvivorM_Lewis : SurvivorM_Lewis{};
-    class CRDTN_SurvivorM_Manua : SurvivorM_Manua{};
-    class CRDTN_SurvivorM_Niki : SurvivorM_Niki{};
-    class CRDTN_SurvivorM_Oliver : SurvivorM_Oliver{};
-    class CRDTN_SurvivorM_Peter : SurvivorM_Peter{};
-    class CRDTN_SurvivorM_Quinn : SurvivorM_Quinn{};
-    class CRDTN_SurvivorM_Rolf : SurvivorM_Rolf{};
-    class CRDTN_SurvivorM_Seth : SurvivorM_Seth{};
-    class CRDTN_SurvivorM_Taiki : SurvivorM_Taiki{};
-    class CRDTN_SurvivorF_Eva : SurvivorF_Eva{};
-    class CRDTN_SurvivorF_Frida : SurvivorF_Frida{};
-    class CRDTN_SurvivorF_Gabi : SurvivorF_Gabi{};
-    class CRDTN_SurvivorF_Helga : SurvivorF_Helga{};
-    class CRDTN_SurvivorF_Irena : SurvivorF_Irena{};
-    class CRDTN_SurvivorF_Judy : SurvivorF_Judy{};
-    class CRDTN_SurvivorF_Keiko : SurvivorF_Keiko{};
-    class CRDTN_SurvivorF_Linda : SurvivorF_Linda{};
-    class CRDTN_SurvivorF_Maria : SurvivorF_Maria{};
-    class CRDTN_SurvivorF_Naomi : SurvivorF_Naomi{};
-    class CRDTN_SurvivorF_Baty : SurvivorF_Baty{};
+    class CRDTN_SurvivorM_Mirek : SurvivorM_Mirek
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Boris : SurvivorM_Boris
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Cyril : SurvivorM_Cyril
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Denis : SurvivorM_Denis
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Elias : SurvivorM_Elias
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Francis : SurvivorM_Francis
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Guo : SurvivorM_Guo
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Hassan : SurvivorM_Hassan
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Indar : SurvivorM_Indar
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Jose : SurvivorM_Jose
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Kaito : SurvivorM_Kaito
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Lewis : SurvivorM_Lewis
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Manua : SurvivorM_Manua
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Niki : SurvivorM_Niki
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Oliver : SurvivorM_Oliver
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Peter : SurvivorM_Peter
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Quinn : SurvivorM_Quinn
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Rolf : SurvivorM_Rolf
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Seth : SurvivorM_Seth
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorM_Taiki : SurvivorM_Taiki
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorF_Eva : SurvivorF_Eva
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorF_Frida : SurvivorF_Frida
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorF_Gabi : SurvivorF_Gabi
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorF_Helga : SurvivorF_Helga
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorF_Irena : SurvivorF_Irena
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorF_Judy : SurvivorF_Judy
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorF_Keiko : SurvivorF_Keiko
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorF_Linda : SurvivorF_Linda
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorF_Maria : SurvivorF_Maria
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorF_Naomi : SurvivorF_Naomi
+    {
+        scope = 2;
+    };
+    class CRDTN_SurvivorF_Baty : SurvivorF_Baty
+    {
+        scope = 2;
+    };
 };

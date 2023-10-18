@@ -30,3 +30,9 @@ enum CRDTN_EMenuContext
     _NONE,
     PLAYER
 };
+
+enum CRDTN_RPC_NPC
+{
+    _NONE,
+    SYNC_NPC
+};
