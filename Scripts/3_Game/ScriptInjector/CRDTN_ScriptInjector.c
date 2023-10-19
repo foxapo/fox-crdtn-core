@@ -1,4 +1,0 @@
-// class CRDTN_ScriptInjector
-// {
-    
-// };

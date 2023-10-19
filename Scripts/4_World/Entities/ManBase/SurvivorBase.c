@@ -34,8 +34,7 @@ modded class SurvivorBase
 
     void EquipInHands(string classname)
     {
-        Man man = Man.Cast(this);
-        man.GetHumanInventory().CreateInHands(classname);
+        GetHumanInventory().CreateInHands(classname);
     }
 
     void SyncToClient()
@@ -49,8 +48,7 @@ modded class SurvivorBase
 
     void EquipCRDTN_Item(CRDTN_Item item)
     {
-        Man man = Man.Cast(this);
-        EntityAI ent = EntityAI.Cast(man.GetHumanInventory().CreateInHands(item.ClassName));
+        EntityAI ent = GetHumanInventory().CreateInHands(item.ClassName);
         if(ent && ent.GetInventory())
         {
             foreach(CRDTN_Item attachment : item.Attachments)

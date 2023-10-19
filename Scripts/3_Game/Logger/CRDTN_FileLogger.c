@@ -3,7 +3,7 @@ class CRDTN_FileLogger
 
     static ref map<string, ref CRDTN_FileLogger> m_Instances = new map<string, ref CRDTN_FileLogger>;
     private string _path = "";
-    private string _name = "<< [CRDTN Logger] >>";
+    private string _name = "<< [CRDTN Logger] >>"; //dontobf
 
     private bool _useDate = true;
 
@@ -41,7 +41,7 @@ class CRDTN_FileLogger
         if (file == 0)
         {
             file = OpenFile(GetPath(), FileMode.WRITE);
-            FPrintln(file, "/* CRDTN FILE LOGGER INSTANCE */");
+            FPrintln(file, "/* CRDTN FILE LOGGER INSTANCE */"); //dontobf
         }
         CloseFile(file);
     }
@@ -63,7 +63,7 @@ class CRDTN_FileLogger
 
     private string GetPath()
     {
-        return CFG_CRDTN_LogsFolder + "\\" + _name + ".log";
+        return CFG_CRDTN_LogsFolder + "\\" + _name + ".log"; //dontobf
     }
 
     string GetDate(bool fileFriendly = false)
@@ -76,9 +76,9 @@ class CRDTN_FileLogger
         string date = day.ToStringLen(2) + "." + month.ToStringLen(2) + "." + year.ToStringLen(4) + " " + hour.ToStringLen(2) + ":" + minute.ToStringLen(2) + ":" + second.ToStringLen(2);
         if (fileFriendly)
         {
-            date.Replace(" ", "_");
-            date.Replace(".", "-");
-            date.Replace(":", "-");
+            date.Replace(" ", "_"); //dontobf
+            date.Replace(".", "-"); //dontobf
+            date.Replace(":", "-"); //dontobf
         }
 
         if(!_useDate)
@@ -86,6 +86,6 @@ class CRDTN_FileLogger
             return "";
         }
 
-        return "[" + date + "] ";
+        return "[" + date + "] "; //dontobf
     }
 }

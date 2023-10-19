@@ -24,8 +24,6 @@ class CRDTN_RestCallbackBase : RestCallback
 
     override void OnSuccess(string data, int dataSize)
     {
-        // if (dataSize > 0)
-        //     DebugUtils.Log("[RestApi]: " + data);
         if (OnSuccess)
         {
             OnSuccess.Invoke(data);
