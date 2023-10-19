@@ -23,9 +23,9 @@ class CRDTN_GlobalUtils
         string date = day.ToStringLen(2) + "." + month.ToStringLen(2) + "." + year.ToStringLen(4) + " " + hour.ToStringLen(2) + ":" + minute.ToStringLen(2) + ":" + second.ToStringLen(2);
         if (fileFriendly)
         {
-            date.Replace(" ", "_");
-            date.Replace(".", "-");
-            date.Replace(":", "-");
+            date.Replace(" ", "_"); //dontobf
+            date.Replace(".", "-"); //dontobf
+            date.Replace(":", "-"); //dontobf
         }
 
         return date;
@@ -33,34 +33,35 @@ class CRDTN_GlobalUtils
 
     static string ResolveTheme(string key)
     {
-        switch(key)
+        switch (key)
         {
-            case "default-orange":
-                return "CRDTN_Quests\\data\\themes\\default-orange.png";
-            case "default":
-                return "CRDTN_Quests\\data\\themes\\default.edds";
-            case "stalker":
-                return "CRDTN_Quests\\data\\themes\\stalker.edds";
+        case "default-orange":
+            return "CRDTN_Quests\\data\\themes\\default-orange.png";
+        case "default":
+            return "CRDTN_Quests\\data\\themes\\default.edds";
+        case "stalker":
+            return "CRDTN_Quests\\data\\themes\\stalker.edds";
         }
-        // IF YOU WANT TO ADD NEW THEME - CONTACT ME AND WE CAN MAKE IT 
+        // IF YOU WANT TO ADD NEW THEME - CONTACT ME AND WE CAN MAKE IT
         return "CRDTN_Quests\\data\\themes\\default.edds";
     }
 
     /// @brief Transform the given json data string from Rest-API response to a valid Enum type of RestApiRequestType
-    /// @param value 
+    /// @param value
     /// @return value of RestApiRequestType enum
     static RestApiRequestType GetRequestType(string value, out string unique_id)
     {
-        unique_id = "";
-        int requestTypeStartIndex = value.IndexOf("\"requestType\":") + 15;
-        int requestTypeEndIndex = value.IndexOfFrom(requestTypeStartIndex, "\"");
-
-        int uniqueIdStartIndex = value.IndexOf("\"uniqueId\":") + 12;
-        int uniqueIdEndIndex = value.IndexOfFrom(uniqueIdStartIndex, "\"");
-
+        unique_id = "";                   //dontobf
+        string rtsi = "\"requestType\":"; //dontobf
+        string rtei = "\"uniqueId\":";    //dontobf
+        string usi = "\"";//dontobf
+        string uei = "\"";//dontobf
+        int requestTypeStartIndex = value.IndexOf(rtsi) + 15;
+        int requestTypeEndIndex = value.IndexOfFrom(requestTypeStartIndex, usi);
+        int uniqueIdStartIndex = value.IndexOf(rtei) + 12;
+        int uniqueIdEndIndex = value.IndexOfFrom(uniqueIdStartIndex, uei);
         string requestTypeString = value.Substring(requestTypeStartIndex, requestTypeEndIndex - requestTypeStartIndex);
         unique_id = value.Substring(uniqueIdStartIndex, uniqueIdEndIndex - uniqueIdStartIndex);
-
         return typename.StringToEnum(RestApiRequestType, requestTypeString);
     }
 };

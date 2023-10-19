@@ -1,10 +1,3 @@
-  // CFG_CRDTN_UI_Menu_ListEntry
-  // CFG_CRDTN_UI_Menu_Category
-  // CFG_CRDTN_UI_Menu_Element_Divider
-  // CFG_CRDTN_UI_Menu_Element_Header
-  // CFG_CRDTN_UI_Menu_Element_ItemPreview
-  // CFG_CRDTN_UI_Menu_Element_Text
-
 class UI_CRDTNMenu extends UIScriptedMenu
 {
     protected bool m_IsActive = false;
@@ -16,14 +9,14 @@ class UI_CRDTNMenu extends UIScriptedMenu
     protected TextWidget                m_ContextHeaderText;
     protected TextWidget                m_ContentHeaderText;
 
-      // Cache
+          // Cache
     protected ref array<ref Widget> m_NavigationCategories  = new array<ref Widget>();
     protected ref array<ref Widget> m_CurrentContentWidgets = new array<ref Widget>();
     
-      // Events
+          // Events
     ref ScriptInvoker EEntrySelected;
 
-      // Selected entry
+          // Selected entry
     protected ref UI_CRDTNListEntry       m_SelectedEntry;
 
     override Widget Init()
@@ -70,7 +63,7 @@ class UI_CRDTNMenu extends UIScriptedMenu
 
     void UI_OnListEntrySelected(ref UI_CRDTNListEntry listEntry)
     {
-          // Prevents of clicking on the same entry twice
+              // Prevents of clicking on the same entry twice
         if(m_SelectedEntry != NULL && m_SelectedEntry == listEntry) 
         {
             return;
@@ -167,7 +160,7 @@ class UI_CRDTNMenu extends UIScriptedMenu
         UnlockPlayerControl();
     }
 
-      // Widgets helpers
+          // Widgets helpers
 
     protected Widget AddDivider()
     {

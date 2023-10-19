@@ -10,10 +10,6 @@ modded class MissionServer
         GetCRDTN_CorePluginServer().InitMission(CRDTN_GetServerHostName());
     }
 
-    /// @brief Called when connected or respawned
-    /// @param player
-    /// @param identity
-    /// @return
     override void InvokeOnConnect(PlayerBase player, PlayerIdentity identity)
     {
         super.InvokeOnConnect(player, identity);
@@ -22,8 +18,7 @@ modded class MissionServer
             return;
         }
 
-        // Send the server config to player
-        DebugUtils.Log(CFG_CRDTN_Core_Prefix + ": Sending config to player");
+        // DebugUtils.Log(CFG_CRDTN_Core_Prefix + ": Sending config to player");
         GetCRDTN_CorePluginServer().OnPlayerConnected(identity, player);
 
         if (!GetCRDTN_CorePluginServer().GetConfig())
@@ -46,8 +41,8 @@ modded class MissionServer
     /// @param identity
     void SendWelcomeNotification(PlayerIdentity identity)
     {
-        DebugUtils.Log(CFG_CRDTN_Core_Prefix + ": CRDTN_Core Sending welcome notification");
-        NotificationSystem.SendNotificationToPlayerIdentityExtended(identity, 3, "Welcome survivor!", "Welcome to " + CRDTN_GetServerHostName(), "set:ccgui_enforce image:MapUserMarker");
+        // DebugUtils.Log(CFG_CRDTN_Core_Prefix + ": CRDTN_Core Sending welcome notification");
+        NotificationSystem.SendNotificationToPlayerIdentityExtended(identity, 3, "Welcome survivor!", "Welcome to " + CRDTN_GetServerHostName(), "set:ccgui_enforce image:MapUserMarker"); //dontobf
     }
 
     void SendMessageToPlayer(PlayerBase player)
@@ -67,13 +62,13 @@ modded class MissionServer
         {
             fullPathToConfig = "$CurrentDir:serverDZ.cfg"; // default
         }
-        else if (cfgPath.Substring(1, 2) == ":\\")
+        else if (cfgPath.Substring(1, 2) == ":\\")  //dontobf
         {
             array<string> output = {};
             cfgPath.Split("\\", output);
             if (output && output.Count() > 0)
             {
-                fullPathToConfig = string.Format("$CurrentDir:%1\\%2", output[output.Count() - 2], output[output.Count() - 1]);
+                fullPathToConfig = string.Format("$CurrentDir:%1\\%2", output[output.Count() - 2], output[output.Count() - 1]);  //dontobf
             }
         }
         else
@@ -83,7 +78,7 @@ modded class MissionServer
 
         if (!FileExist(fullPathToConfig))
         {
-            fullPathToConfig = "$CurrentDir:serverDZ.cfg"; // default
+            fullPathToConfig = "$CurrentDir:serverDZ.cfg";  //dontobf
         }
 
         FileHandle serverCfg = OpenFile(fullPathToConfig, FileMode.READ);
@@ -113,17 +108,17 @@ modded class MissionServer
                 if (line.Length() >= 10)
                 {
                     string tmpLine = line.Substring(0, 10);
-                    if (tmpLine == "hostname=\"")
+                    if (tmpLine == "hostname=\"") //dontobf
                     {
                         int strIndex;
                         while (line[strIndex] != string.Empty)
                         {
-                            if (line[strIndex] == "\"" && line[strIndex + 1] != string.Empty)
+                            if (line[strIndex] == "\"" && line[strIndex + 1] != string.Empty)  //dontobf
                             {
                                 if (line[strIndex + 1] == ";")
                                 {
                                     string dirtyName = line.Substring(0, strIndex);
-                                    dirtyName.Replace("hostname=\"", "");
+                                    dirtyName.Replace("hostname=\"", "");  //dontobf
                                     Print(dirtyName);
                                     return dirtyName;
                                 }

@@ -31,6 +31,14 @@ modded class DayZGame
         Print(CFG_CRDTN_Core_Prefix + " Game::DayZGame() CRDTN_Radiation enabled");
         #endif
 
+        #ifdef CRDTN_LockedDoors
+        Print(CFG_CRDTN_Core_Prefix + " Game::DayZGame() CRDTN_LockedDoors enabled");
+        #endif
+
+        #ifdef CRDTN_Creatures
+        Print(CFG_CRDTN_Core_Prefix + " Game::DayZGame() CRDTN_Creatures enabled");
+        #endif
+
         m_CRDTN_EventHandler = new CRDTN_EventHandler();
 
         if(!FileExist(CFG_CRDTN_Root_Folder))

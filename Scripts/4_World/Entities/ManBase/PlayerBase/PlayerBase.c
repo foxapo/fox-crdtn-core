@@ -46,7 +46,7 @@ modded class PlayerBase
                     m_PsiEffect.SetPsiLevel(value);
                 #endif
                 DayZPlayerCameraBase camera = DayZPlayerCameraBase.Cast(this.GetCurrentCamera());
-		        camera.SpawnCameraShakeProper(value * 0.2, 3, 0.3, 1.0);
+		        camera.SpawnCameraShakeProper(value * 0.2, 3, 0.3, 1.0); //dontobf
                 break;
         }
     }
