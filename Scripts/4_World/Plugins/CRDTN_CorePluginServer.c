@@ -24,7 +24,7 @@ class CRDTN_CorePluginServer : CRDTN_CorePluginBase
 
     void PlaySoundOnClientObject(PlayerBase player, Object object, string soundSetName)
     {
-        GetRPCManager().SendRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClientObject", new Param2<Object, string>(object, soundSetName), false, player.GetIdentity());
+        GetRPCManager().SendRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClientObject", new Param1<string>(soundSetName), false, player.GetIdentity(), object);
     }
 
     void InitMission(string serverName)

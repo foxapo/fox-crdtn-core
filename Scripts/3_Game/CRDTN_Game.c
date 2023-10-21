@@ -44,8 +44,13 @@ modded class DayZGame
         if(!FileExist(CFG_CRDTN_Root_Folder))
         {
             DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Game::DayZGame() Creating new root folder: " + CFG_CRDTN_Root_Folder);
-            // Intiialize the folder if necessary 
             MakeDirectory(CFG_CRDTN_Root_Folder);
+        }
+
+        if(!FileExist(CFG_CRDTN_DataFolder))
+        {
+            DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Game::DayZGame() Creating new data folder: " + CFG_CRDTN_DataFolder);
+            MakeDirectory(CFG_CRDTN_DataFolder);
         }
 
         if(IsServer() && !IsClient())

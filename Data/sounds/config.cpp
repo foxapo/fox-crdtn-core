@@ -43,7 +43,7 @@ class CfgSoundSets
         loop = 0;
     };
 
-    #include "core_sound_sets.hpp"
+    #include "alarm\alarm_sound_sets.hpp"
     #include "pda\pda_sound_sets.hpp"
     #include "ambient\ambient_sound_sets.hpp"
 };
@@ -84,7 +84,7 @@ class CfgSoundShaders
                 {1, 0}};
     };
 
-    #include "core_sound_shaders.hpp"
+    #include "alarm\alarm_sound_shaders.hpp"
     #include "pda\pda_sound_shaders.hpp"
     #include "ambient\ambient_sound_shaders.hpp"
 };

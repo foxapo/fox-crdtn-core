@@ -36,3 +36,10 @@ enum CRDTN_RPC_NPC
     _NONE,
     SYNC_NPC
 };
+
+enum CRDTN_DataFeedType
+{
+    _NONE,
+    DEFAULT,
+    WORKBENCH,
+};
