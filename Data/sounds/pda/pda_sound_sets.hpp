@@ -46,3 +46,8 @@ class CRDTN_SoundSet_StalkerSounds_Pda_Spot_Discovered : CRDTN_SoundSet_StalkerS
 {
     soundShaders[] = {"CRDTN_SoundShader_StalkerSounds_Pda_Spot_Discovered"};
 };
+
+class CRDTN_SoundSet_StalkerSounds_Pda_Btn_Press : CRDTN_SoundSet_StalkerSounds_Pda_Base
+{
+    soundShaders[] = {"CRDTN_SoundShader_StalkerSounds_Pda_Btn_Press"};
+};

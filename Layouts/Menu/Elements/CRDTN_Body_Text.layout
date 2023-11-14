@@ -10,7 +10,7 @@ MultilineTextWidgetClass BodyText {
  scaled 0
  style DayZNormal
  text "Radiation is a hazard in certain areas of the DayZ map, particularly around military installations and nuclear facilities. Exposure to radiation can result in radiation sickness, which affects your character's health and can lead to death if not treated. To protect yourself from radiation, wear protective gear like gas masks and use Geiger counters to monitor radiation levels in the environment."
- font "gui/fonts/etelkatextpro16"
+ font "CRDTN_Core/Data/fonts/Bender/Bender-Regular16"
  "exact text" 1
  "size to text h" 0
  "size to text v" 1

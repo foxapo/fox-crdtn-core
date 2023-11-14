@@ -55,10 +55,6 @@ class UI_CRDTNMenu extends UIScriptedMenu
             EEntrySelected = new ScriptInvoker();
             EEntrySelected.Insert(UI_OnListEntrySelected);
         }
-        else
-        {
-            EEntrySelected.Clear();
-        }
     }
 
     void UI_OnListEntrySelected(ref UI_CRDTNListEntry listEntry)
@@ -93,7 +89,14 @@ class UI_CRDTNMenu extends UIScriptedMenu
     {
         InitMain(context);
         InitNavigation(context);
-        InitContent(context);
+        if(m_SelectedEntry != null)
+        {
+            UI_OnListEntrySelected(m_SelectedEntry);
+        }
+        else
+        {
+            InitContent(context);
+        }
     }
 
     void InitMain(CRDTN_EMenuContext context);

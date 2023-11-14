@@ -99,7 +99,7 @@ GridSpacerWidgetClass NotificationElementRoot {
      vexactsize 0
      scaled 0
      text ""
-     font "CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium22"
+     font "CRDTN_Core/Data/fonts/Bender/Bender-Regular20"
      "text offset" 20 0
      "exact text" 1
      "size to text h" 1

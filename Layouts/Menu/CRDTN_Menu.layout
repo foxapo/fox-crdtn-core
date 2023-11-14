@@ -85,7 +85,7 @@ FrameWidgetClass rootFrame {
          hexactsize 0
          vexactsize 0
          text "CONTEXT MENU"
-         font "gui/fonts/etelkatextpro28"
+         font "CRDTN_Core/Data/fonts/Bender/Bender-Regular32"
          "text offset" 30 0
          "text valign" center
         }
@@ -138,7 +138,7 @@ FrameWidgetClass rootFrame {
          colums "Available tasks;100"
          lines 1
          "highlight row" 0
-         font "CRDTN_Core/data/fonts/Victor-Mono/VictorMono-Regular22"
+         font "CRDTN_Core/Data/fonts/Bender/Bender-Regular22"
          {
           TextWidgetClass AvailableText {
            ignorepointer 1
@@ -149,7 +149,7 @@ FrameWidgetClass rootFrame {
            hexactsize 0
            vexactsize 1
            text "Available Quests"
-           font "CRDTN_Core/data/fonts/Victor-Mono/VictorMono-Regular22"
+           font "CRDTN_Core/Data/fonts/Bender/Bender-Regular22"
           }
          }
         }
@@ -172,7 +172,7 @@ FrameWidgetClass rootFrame {
          colums "Taken tasks;100"
          lines 1
          "highlight row" 0
-         font "CRDTN_Core/data/fonts/Victor-Mono/VictorMono-Regular22"
+         font "CRDTN_Core/Data/fonts/Bender/Bender-Regular22"
          {
           TextWidgetClass TakenText {
            ignorepointer 1
@@ -183,7 +183,7 @@ FrameWidgetClass rootFrame {
            hexactsize 0
            vexactsize 1
            text "Active Quests"
-           font "CRDTN_Core/data/fonts/Victor-Mono/VictorMono-Regular22"
+           font "CRDTN_Core/Data/fonts/Bender/Bender-Regular22"
           }
          }
         }
@@ -269,7 +269,7 @@ FrameWidgetClass rootFrame {
            hexactsize 0
            vexactsize 0
            text "NAME"
-           font "gui/fonts/etelkatextpro22"
+           font "CRDTN_Core/Data/fonts/Bender/Bender-Regular22"
            "exact text" 0
            "size to text h" 0
            "size to text v" 0
@@ -367,7 +367,7 @@ FrameWidgetClass rootFrame {
            scriptclass "UI_BtnHover"
            style InventoryActionMenu
            text "Take"
-           font "gui/fonts/etelkatextpro16"
+           font "CRDTN_Core/Data/fonts/Bender/Bender-Regular16"
            {
             ImageWidgetClass Btn_BG {
              ignorepointer 1

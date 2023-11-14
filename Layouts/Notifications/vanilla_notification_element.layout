@@ -57,7 +57,7 @@ GridSpacerWidgetClass NotificationElementRoot {
      hexactsize 0
      vexactsize 0
      text "Notification text"
-     font "gui/fonts/etelkatextpro28"
+     font "CRDTN_Core/Data/fonts/Bender/Bender-Regular32"
      "exact text" 1
      "exact text size" 22
      "size to text h" 0
@@ -104,7 +104,7 @@ GridSpacerWidgetClass NotificationElementRoot {
      hexactsize 0
      vexactsize 0
      text "Notification text"
-     font "gui/fonts/etelkatextpro22"
+     font "CRDTN_Core/Data/fonts/Bender/Bender-Regular22"
      "exact text" 1
      "exact text size" 18
      "size to text v" 1

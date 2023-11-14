@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{7EFCD2382B90DFC4}CRDTN_Core/Data/fonts/Bender/Bender-Regular38.edds"
+ Author "ocelot"
+ ChangeDate 901443433
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "Bender-Regular38.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

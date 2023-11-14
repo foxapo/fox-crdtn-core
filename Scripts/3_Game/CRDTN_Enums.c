@@ -34,7 +34,8 @@ enum CRDTN_EMenuContext
 enum CRDTN_RPC_NPC
 {
     _NONE,
-    SYNC_NPC
+    SYNC_NPC,
+    SYNC_NPC_INFO,
 };
 
 enum CRDTN_DataFeedType

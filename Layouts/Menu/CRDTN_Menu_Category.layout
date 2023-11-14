@@ -20,7 +20,7 @@ WrapSpacerWidgetClass CategoryWrapper {
    vexactsize 1
    scaled 0
    text "CATEGORY NAME"
-   font "gui/fonts/etelkatextpro22"
+   font "CRDTN_Core/Data/fonts/Bender/Bender-Regular22"
    "exact text" 0
    "size to text h" 0
    "size to text v" 0

@@ -46,7 +46,7 @@ WrapSpacerWidgetClass ListEntry {
      vexactsize 0
      scaled 0
      text "Quest Entry "
-     font "gui/fonts/etelkatextpro16"
+     font "CRDTN_Core/Data/fonts/Bender/Bender-Regular16"
      "text offset" 20 0
      "exact text" 0
      "size to text h" 0
@@ -66,7 +66,7 @@ WrapSpacerWidgetClass ListEntry {
      scaled 0
      style Normal
      text "Kill quest"
-     font "gui/fonts/etelkatextpro16"
+     font "CRDTN_Core/Data/fonts/Bender/Bender-Regular16"
      "text color" 0.4 0.4 0.4 1
      "text offset" 20 0
      "exact text" 0

@@ -11,7 +11,7 @@ MultilineTextWidgetClass BodyHeader {
  scaled 0
  style DayZNormal
  text "Some Header"
- font "gui/fonts/etelkatextpro28"
+ font "CRDTN_Core/Data/fonts/Bender/Bender-Regular32"
  "exact text" 1
  "size to text h" 0
  "size to text v" 1
