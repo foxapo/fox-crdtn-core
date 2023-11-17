@@ -32,7 +32,7 @@ class CRDTN_FileLogger
 
     void CRDTN_FileLogger(string name)
     {
-        _name = name;
+        _name = name + "_" + GetDate(true);
         if(!FileExist(CFG_CRDTN_LogsFolder))
         {
             _isInitialized = false;
@@ -94,6 +94,7 @@ class CRDTN_FileLogger
             date.Replace(" ", "_"); //dontobf
             date.Replace(".", "-"); //dontobf
             date.Replace(":", "-"); //dontobf
+            return date;
         }
 
         if(!_useDate)
