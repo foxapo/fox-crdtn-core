@@ -13,13 +13,13 @@ modded class MissionGameplay
                 CloseCRDTN_Menu();
             }
             break;
-        case KeyCode.KC_K:
-            if (GetCRDTN_CorePlugin())
-            {
-                OpenCRDTN_Menu();
-            }
-            break;
-        }
+        // case KeyCode.KC_K:
+        //     if (GetCRDTN_CorePlugin())
+        //     {
+        //         OpenCRDTN_Menu();
+        //     }
+        //     break;
+        // }
     }
 
     void CloseCRDTN_Menu()

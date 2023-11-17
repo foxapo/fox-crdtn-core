@@ -43,4 +43,9 @@ class CRDTN_Icons
 
         return "";
     }
+
+    static string GetIconById(string id)
+    {
+        return "CRDTN_Core/data/images/icons/" + id + ".edds";
+    }
 };

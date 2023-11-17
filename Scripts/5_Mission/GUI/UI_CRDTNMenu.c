@@ -19,9 +19,10 @@ class UI_CRDTNMenu extends UIScriptedMenu
           // Selected entry
     protected ref UI_CRDTNListEntry       m_SelectedEntry;
 
+
     override Widget Init()
     {
-        layoutRoot = GetGame().GetWorkspace().CreateWidgets(CFG_CRDTN_UI_Menu_Layout);
+        layoutRoot = GetGame().GetWorkspace().CreateWidgets(GetCRDTNMenuLayout());
 
         m_Background        = ImageWidget.Cast(layoutRoot.FindAnyWidget("Background"));
         m_NavigationGrid    = GridSpacerWidget.Cast(layoutRoot.FindAnyWidget("NavigationGrid"));
@@ -30,30 +31,34 @@ class UI_CRDTNMenu extends UIScriptedMenu
         m_ContextHeaderText = TextWidget.Cast(layoutRoot.FindAnyWidget("ContextHeaderText"));
         m_ContentHeaderText = TextWidget.Cast(layoutRoot.FindAnyWidget("ContentHeaderText"));
 
+        InitLayout();
         InitCache();
         RegisterListeners();
 
         return layoutRoot;
     }
 
-    protected void InitCache()
+    string GetCRDTNMenuLayout()
     {
-        if(!m_NavigationCategories)
-        {
-            m_NavigationCategories = new array<ref Widget>();
-        }
-        else
-        {
-            m_NavigationCategories.Clear();
-        }
+        return CFG_CRDTN_UI_Menu_Layout;
     }
 
-    protected void RegisterListeners()
+    void InitLayout();
+
+    void InitCache()
     {
-        if(!EEntrySelected)
+        ClearCategories();
+    }
+
+    void ClearCategories()
+    {        
+        if(m_NavigationCategories)
         {
-            EEntrySelected = new ScriptInvoker();
-            EEntrySelected.Insert(UI_OnListEntrySelected);
+            foreach(Widget widget : m_NavigationCategories)
+            {
+                m_NavigationGrid.RemoveChild(widget);
+            }
+            m_NavigationCategories.Clear();
         }
     }
 
@@ -85,7 +90,7 @@ class UI_CRDTNMenu extends UIScriptedMenu
         InitEntryData(listEntry.ContextData);
     }
 
-    protected void InitContext(CRDTN_EMenuContext context)
+    void InitContext(CRDTN_EMenuContext context)
     {
         InitMain(context);
         InitNavigation(context);
@@ -105,6 +110,8 @@ class UI_CRDTNMenu extends UIScriptedMenu
 
     void InitContent(CRDTN_EMenuContext context);
 
+    void InitContextData(Param data, CRDTN_EMenuContext context);
+
     void InitEntryData(ref Param data);
 
     void ShowMenu(CRDTN_EMenuContext context = CRDTN_EMenuContext._NONE)
@@ -116,6 +123,19 @@ class UI_CRDTNMenu extends UIScriptedMenu
             {
                 m_IsActive = true;
                 menu.InitContext(context);
+            }
+        }
+    }
+
+    void ShowMenuWithData(CRDTN_EMenuContext context = CRDTN_EMenuContext._NONE, Param data = NULL)
+    {
+        if (!IsShowing() && GetGame().GetUIManager().GetMenu() == NULL)
+        {
+            UI_CRDTNMenu menu = UI_CRDTNMenu.Cast(GetGame().GetUIManager().ShowScriptedMenu(this, NULL));
+            if (menu)
+            {
+                m_IsActive = true;
+                menu.InitContextData(data, context);
             }
         }
     }
@@ -146,6 +166,23 @@ class UI_CRDTNMenu extends UIScriptedMenu
         GetGame().GetUIManager().ShowUICursor(false);
     }
 
+    void RegisterListeners()
+    {
+        if(!EEntrySelected)
+        {
+            EEntrySelected = new ScriptInvoker();
+            EEntrySelected.Insert(UI_OnListEntrySelected);
+        }
+    }
+
+    void UnRegisterListeners()
+    {
+        if(EEntrySelected)
+        {
+            EEntrySelected.Clear();
+        }
+    }
+
     bool IsShowing()
     {
         return m_IsActive;
@@ -154,16 +191,18 @@ class UI_CRDTNMenu extends UIScriptedMenu
     override void OnShow()
     {
         super.OnShow();
+        RegisterListeners();
         LockPlayerControl();
     }
 
     override void OnHide()
     {
         super.OnHide();
+        UnRegisterListeners();
         UnlockPlayerControl();
     }
 
-          // Widgets helpers
+    // Widgets helpers
 
     protected Widget AddDivider()
     {
@@ -180,6 +219,7 @@ class UI_CRDTNMenu extends UIScriptedMenu
         m_CurrentContentWidgets.Insert(header);
         return headerText;
     }
+
 
     protected MultilineTextWidget AddBodyText(string text)
     {
