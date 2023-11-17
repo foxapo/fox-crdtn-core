@@ -56,4 +56,4 @@ modded class NotificationUI
     {
         m_NotificationLayoutPath = "gui/layouts/new_ui/notifications/notifications.layout";
     }
-}
+};

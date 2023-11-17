@@ -6,6 +6,7 @@
 // pda_tip.ogg
 // pda_welcome.ogg
 // spot_discovered.ogg
+// pda_btn_press.ogg
 
 class CRDTN_SoundShader_StalkerSounds_Pda_Alarm : CRDTN_SoundShader_StalkerSounds_Pda_Base
 {
@@ -45,5 +46,10 @@ class CRDTN_SoundShader_StalkerSounds_Pda_Welcome : CRDTN_SoundShader_StalkerSou
 class CRDTN_SoundShader_StalkerSounds_Pda_Spot_Discovered : CRDTN_SoundShader_StalkerSounds_Pda_Base
 {
     samples[] = {{"CRDTN_Core\Data\sounds\pda\spot_discovered", 1}};
+};
+
+class CRDTN_SoundShader_StalkerSounds_Pda_Btn_Press : CRDTN_SoundShader_StalkerSounds_Pda_Base
+{
+    samples[] = {{"CRDTN_Core\Data\sounds\pda\pda_btn_press", 1}};
 };
 

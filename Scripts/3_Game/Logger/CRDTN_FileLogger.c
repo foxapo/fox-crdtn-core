@@ -6,6 +6,7 @@ class CRDTN_FileLogger
     private string _name = "<< [CRDTN Logger] >>"; //dontobf
 
     private bool _useDate = true;
+    private bool _isInitialized = false;
 
     static CRDTN_FileLogger CreateInstance(string name)
     {
@@ -31,10 +32,19 @@ class CRDTN_FileLogger
 
     void CRDTN_FileLogger(string name)
     {
-        _name = name;
+        _name = name + "_" + GetDate(true);
         if(!FileExist(CFG_CRDTN_LogsFolder))
         {
-            MakeDirectory(CFG_CRDTN_LogsFolder);
+            _isInitialized = false;
+        }
+        else
+        {
+            _isInitialized = true;
+        }
+
+        if(!_isInitialized)
+        {
+            return;
         }
 
         FileHandle file = OpenFile(GetPath(), FileMode.READ);
@@ -53,6 +63,11 @@ class CRDTN_FileLogger
 
     void Log(string txt, bool nothing = false)
     {
+        if(!_isInitialized)
+        {
+            return;
+        }
+
         FileHandle logFile = OpenFile(GetPath(), FileMode.APPEND);
         if (logFile != 0)
         {
@@ -79,6 +94,7 @@ class CRDTN_FileLogger
             date.Replace(" ", "_"); //dontobf
             date.Replace(".", "-"); //dontobf
             date.Replace(":", "-"); //dontobf
+            return date;
         }
 
         if(!_useDate)

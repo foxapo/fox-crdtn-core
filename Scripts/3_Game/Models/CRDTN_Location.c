@@ -12,4 +12,5 @@ class CRDTN_NpcLocation : CRDTN_Location
     string GiverId;
     ref TStringArray Clothes;
     ref CRDTN_Item EquipInHands;
+    ref CRDTN_NpcInfo NpcInfo;
 };

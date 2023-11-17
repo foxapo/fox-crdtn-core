@@ -111,17 +111,17 @@ CRDTN_Core/data/fonts/Rajdhani-Light/Rajdhani-Light26
 CRDTN_Core/data/fonts/Rajdhani-Light/Rajdhani-Light28
 // Medium
 CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium12
-CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium14
-CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium16
-CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium22
-CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium28
-CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium48
+CRDTN_Core/Data/fonts/Bender/Bender-Regular14
+CRDTN_Core/Data/fonts/Bender/Bender-Regular16
+CRDTN_Core/Data/fonts/Bender/Bender-Regular20
+CRDTN_Core/Data/fonts/Bender/Bender-Regular22
+CRDTN_Core/Data/fonts/Bender/Bender-Regular48
 CRDTN_Core/data/fonts/Rajdhani-Medium/Rajdhani-Medium58
 // Bold
 CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold12
 CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold14
 CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold16
-CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold22
+CRDTN_Core/Data/fonts/Bender/Bender-Regular22
 CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold28
 CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold48
 CRDTN_Core/data/fonts/Rajdhani-Bold/Rajdhani-Bold58
