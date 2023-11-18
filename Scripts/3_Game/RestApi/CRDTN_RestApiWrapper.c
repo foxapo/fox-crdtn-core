@@ -55,7 +55,7 @@ class CRDTN_RestApiWrapper
 
     void ExecuteRequest(string url, string method, string data)
     {        
-        RestContext ctx = GetGame().GetRestApi().GetRestContext(m_URL);
+        RestContext ctx = GetRestApi().GetRestContext(m_URL);
         ctx.SetHeader("application/json");
         switch(method)
         {
