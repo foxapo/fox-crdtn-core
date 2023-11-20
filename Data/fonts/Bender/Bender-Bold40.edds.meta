@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{0F6BE42AAB56ACBB}CRDTN_Core/Data/fonts/Bender/Bender-Bold40.edds"
+ Author "ocelot"
+ ChangeDate 1346744180
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "Bender-Bold40.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

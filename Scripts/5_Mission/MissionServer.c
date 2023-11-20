@@ -42,7 +42,7 @@ modded class MissionServer
     void SendWelcomeNotification(PlayerIdentity identity)
     {
         // DebugUtils.Log(CFG_CRDTN_Core_Prefix + ": CRDTN_Core Sending welcome notification");
-        NotificationSystem.SendNotificationToPlayerIdentityExtended(identity, 3, "Welcome survivor!", "Welcome to " + CRDTN_GetServerHostName(), "set:ccgui_enforce image:MapUserMarker"); //dontobf
+        NotificationSystem.SendNotificationToPlayerIdentityExtended(identity, 3, "Welcome survivor!", "Welcome to " + CRDTN_GetServerHostName(), "set:ui_news image:news1"); //dontobf
     }
 
     void SendMessageToPlayer(PlayerBase player)

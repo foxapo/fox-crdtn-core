@@ -31,6 +31,19 @@ class CRDTN_GlobalUtils
         return date;
     }
 
+    static string GetDateTime()
+    {
+        // return HH:MM 
+
+        int year, month, day, hour, minute, second;
+
+        GetYearMonthDay(year, month, day);
+        GetHourMinuteSecond(hour, minute, second);
+
+        string date = hour.ToStringLen(2) + ":" + minute.ToStringLen(2);
+        return date;
+    }
+
     static string ResolveTheme(string key)
     {
         switch (key)
