@@ -1,7 +1,7 @@
 #ifdef S_VISUAL
 
 
-class CRDTN_SV_PsiEffect : SPPEffectAnimated
+class CRDTN_SV_PsiEffect : SPPEffectAnimated 
 {
     
     protected float m_PsiLevel = 0;

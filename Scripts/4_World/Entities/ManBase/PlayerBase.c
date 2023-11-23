@@ -6,7 +6,7 @@ modded class PlayerBase
     private bool m_PPEffectsReset = false;
 
 #ifdef S_VISUAL
-    ref CRDTN_SV_PsiEffect m_PsiEffect;
+    protected CRDTN_SV_PsiEffect m_PsiEffect;
 #endif
 
     void PlayerBase()
@@ -14,7 +14,7 @@ modded class PlayerBase
         if (GetGame().IsClient())
         {
 #ifdef S_VISUAL
-            m_PsiEffect = new CRDTN_SV_PsiEffect();
+            Class.CastTo(m_PsiEffect, PPERequesterBank.GetRequester(CRDTN_SV_PsiEffect));
 #endif
         }
     }
@@ -72,7 +72,7 @@ modded class PlayerBase
 #ifdef S_VISUAL
         if (GetInstanceType() == DayZPlayerInstanceType.INSTANCETYPE_CLIENT)
         {
-            SPPEManager.activate(m_PsiEffect);
+            m_PsiEffect.activate();
         }
 #endif
     }
@@ -83,7 +83,7 @@ modded class PlayerBase
 #ifdef S_VISUAL
         if (GetInstanceType() == DayZPlayerInstanceType.INSTANCETYPE_CLIENT)
         {
-            SPPEManager.deactivate(m_PsiEffect);
+            m_PsiEffect.deactivate();
         }
 #endif
     }
