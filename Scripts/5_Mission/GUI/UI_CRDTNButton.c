@@ -8,6 +8,7 @@ class UI_CRDTNButton extends ScriptedWidgetEventHandler
     
     ref             ScriptInvoker       EOnSelect;
     ref             Param               ContextData;
+
     void OnInit(ref Param param)
     {
         ContextData = param;
@@ -37,14 +38,15 @@ class UI_CRDTNButton extends ScriptedWidgetEventHandler
         RefreshUI();
     }
 
+    void SetSelectedCallback(ref ScriptInvoker selectedCallback)
+    {
+        EOnSelect = selectedCallback;
+    }
+
     void RefreshUI()
     {
-        DebugUtils.Log("UI_CRDTNButton::RefreshUI::_EntryIcon " + _EntryIcon);
-        DebugUtils.Log("UI_CRDTNButton::RefreshUI::m_Icon " + m_Icon);
         m_Icon.LoadImageFile(0, _EntryIcon);
-        DebugUtils.Log("UI_CRDTNButton::RefreshUI::m_Icon " + m_Icon);
         m_Icon.SetImage(0);
-
     }
 
     override bool OnMouseButtonDown(Widget w, int x, int y, int button)

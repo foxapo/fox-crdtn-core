@@ -43,15 +43,20 @@ class UI_CRDTNMenu extends UIScriptedMenu
         return CFG_CRDTN_UI_Menu_Layout;
     }
 
-    void InitLayout();
+    void InitLayout()
+    {
+        DebugUtils.Log("UI_CRDTNMenu::InitLayout");
+    }
 
     void InitCache()
     {
+        DebugUtils.Log("UI_CRDTNMenu::InitCache");
         ClearCategories();
     }
 
     void ClearCategories()
     {        
+        DebugUtils.Log("UI_CRDTNMenu::ClearCategories");
         if(m_NavigationCategories)
         {
             foreach(Widget widget : m_NavigationCategories)
@@ -64,7 +69,8 @@ class UI_CRDTNMenu extends UIScriptedMenu
 
     void UI_OnListEntrySelected(ref UI_CRDTNListEntry listEntry)
     {
-              // Prevents of clicking on the same entry twice
+        DebugUtils.Log("UI_CRDTNMenu::UI_OnListEntrySelected");
+        // Prevents of clicking on the same entry twice
         if(m_SelectedEntry != NULL && m_SelectedEntry == listEntry) 
         {
             return;
@@ -92,6 +98,7 @@ class UI_CRDTNMenu extends UIScriptedMenu
 
     void InitContext(CRDTN_EMenuContext context)
     {
+        DebugUtils.Log("UI_CRDTNMenu::InitContext::context " + context);
         InitMain(context);
         InitNavigation(context);
         if(m_SelectedEntry != null)
@@ -171,8 +178,12 @@ class UI_CRDTNMenu extends UIScriptedMenu
         if(!EEntrySelected)
         {
             EEntrySelected = new ScriptInvoker();
-            EEntrySelected.Insert(UI_OnListEntrySelected);
         }
+        else
+        {
+            EEntrySelected.Clear();
+        }
+        EEntrySelected.Insert(UI_OnListEntrySelected);
     }
 
     void UnRegisterListeners()

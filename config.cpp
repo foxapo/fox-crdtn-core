@@ -45,7 +45,7 @@ class CfgMods
 
 class CfgVehicles
 {
-
+    class Container_Base;
     class Inventory_Base;
     class Paper : Inventory_Base
     {
@@ -224,5 +224,67 @@ class CfgVehicles
     class CRDTN_SurvivorF_Baty : SurvivorF_Baty
     {
         scope = 2;
+    };
+
+    class CRDTN_INVContainer : Container_Base
+    {
+        scope = 2;
+        displayName = "Invisible Container";
+        descriptionShort = "Used for various purposes";
+        model = "DZ\structures\Residential\Misc\Misc_BoxWooden.p3d";
+        rotationFlags = 2;
+        weight = 1000000;
+        itemSize[] = {3, 4};
+        itemsCargoSize[] = {10, 100};
+        canBeDigged = 0;
+        isMeleeWeapon = 1;
+        storageCategory = 10;
+        allowOwnedCargoManipulation = 1;
+        randomQuantity = 2;
+        class DamageSystem
+        {
+            class GlobalHealth
+            {
+                class Health
+                {
+                    hitpoints = 999999999;
+                    healthLevels[] = {{1.0, {"DZ\gear\camping\data\wooden_case.rvmat"}}, {0.7, {"DZ\gear\camping\data\wooden_case.rvmat"}}, {0.5, {"DZ\gear\camping\data\wooden_case_damage.rvmat"}}, {0.3, {"DZ\gear\camping\data\wooden_case_damage.rvmat"}}, {0.0, {"DZ\gear\camping\data\wooden_case_destruct.rvmat"}}};
+                };
+            };
+            class GlobalArmor
+            {
+                class FragGrenade
+                {
+                    class Health
+                    {
+                        damage = 8.0;
+                    };
+                    class Blood
+                    {
+                        damage = 8.0;
+                    };
+                    class Shock
+                    {
+                        damage = 8.0;
+                    };
+                };
+            };
+        };
+        class AnimEvents
+        {
+            class SoundWeapon
+            {
+                class pickUpItem
+                {
+                    soundSet = "smallprotectorcase_pickup_SoundSet";
+                    id = 797;
+                };
+                class drop
+                {
+                    soundset = "smallprotectorcase_drop_SoundSet";
+                    id = 898;
+                };
+            };
+        };
     };
 };
