@@ -8,15 +8,16 @@ class UI_CRDTNMenu extends UIScriptedMenu
     protected GridSpacerWidget          m_FooterGrid;
     protected TextWidget                m_ContextHeaderText;
     protected TextWidget                m_ContentHeaderText;
+    protected ScrollWidget              m_LeftPartScrollWrapper;
 
-          // Cache
+                  // Cache
     protected ref array<ref Widget> m_NavigationCategories  = new array<ref Widget>();
     protected ref array<ref Widget> m_CurrentContentWidgets = new array<ref Widget>();
     
-          // Events
+                  // Events
     ref ScriptInvoker EEntrySelected;
 
-          // Selected entry
+                  // Selected entry
     protected ref UI_CRDTNListEntry       m_SelectedEntry;
 
 
@@ -24,16 +25,16 @@ class UI_CRDTNMenu extends UIScriptedMenu
     {
         layoutRoot = GetGame().GetWorkspace().CreateWidgets(GetCRDTNMenuLayout());
 
-        m_Background        = ImageWidget.Cast(layoutRoot.FindAnyWidget("Background"));
-        m_NavigationGrid    = GridSpacerWidget.Cast(layoutRoot.FindAnyWidget("NavigationGrid"));
-        m_ContentGrid       = GridSpacerWidget.Cast(layoutRoot.FindAnyWidget("ContentGrid"));
-        m_FooterGrid        = GridSpacerWidget.Cast(layoutRoot.FindAnyWidget("FooterGrid"));
-        m_ContextHeaderText = TextWidget.Cast(layoutRoot.FindAnyWidget("ContextHeaderText"));
-        m_ContentHeaderText = TextWidget.Cast(layoutRoot.FindAnyWidget("ContentHeaderText"));
+        m_Background            = ImageWidget.Cast(layoutRoot.FindAnyWidget("Background"));
+        m_NavigationGrid        = GridSpacerWidget.Cast(layoutRoot.FindAnyWidget("NavigationGrid"));
+        m_ContentGrid           = GridSpacerWidget.Cast(layoutRoot.FindAnyWidget("ContentGrid"));
+        m_FooterGrid            = GridSpacerWidget.Cast(layoutRoot.FindAnyWidget("FooterGrid"));
+        m_ContextHeaderText     = TextWidget.Cast(layoutRoot.FindAnyWidget("ContextHeaderText"));
+        m_ContentHeaderText     = TextWidget.Cast(layoutRoot.FindAnyWidget("ContentHeaderText"));
+        m_LeftPartScrollWrapper = ScrollWidget.Cast(layoutRoot.FindAnyWidget("LeftPartScroll"));
 
         InitLayout();
         InitCache();
-        RegisterListeners();
 
         return layoutRoot;
     }
@@ -70,7 +71,7 @@ class UI_CRDTNMenu extends UIScriptedMenu
     void UI_OnListEntrySelected(ref UI_CRDTNListEntry listEntry)
     {
         DebugUtils.Log("UI_CRDTNMenu::UI_OnListEntrySelected");
-        // Prevents of clicking on the same entry twice
+                // Prevents of clicking on the same entry twice
         if(m_SelectedEntry != NULL && m_SelectedEntry == listEntry) 
         {
             return;
@@ -213,7 +214,7 @@ class UI_CRDTNMenu extends UIScriptedMenu
         UnlockPlayerControl();
     }
 
-    // Widgets helpers
+            // Widgets helpers
 
     protected Widget AddDivider()
     {
@@ -241,9 +242,9 @@ class UI_CRDTNMenu extends UIScriptedMenu
         return bodyText;
     }
 
-    protected GridSpacerWidget AddNavigationCategory(string text)
+    protected GridSpacerWidget AddNavigationCategory(ref Widget parent, string text)
     {
-        Widget category = GetGame().GetWorkspace().CreateWidgets(CFG_CRDTN_UI_Menu_Category, m_NavigationGrid);
+        Widget category = GetGame().GetWorkspace().CreateWidgets(CFG_CRDTN_UI_Menu_Category, parent);
         m_NavigationCategories.Insert(category);
         TextWidget categoryText = TextWidget.Cast(category.FindAnyWidget("CategoryName"));
         categoryText.SetText(text);

@@ -90,4 +90,4 @@ modded class DayZGame
     {
         m_CRDTN_Config = cfg;
     }
-}
+};

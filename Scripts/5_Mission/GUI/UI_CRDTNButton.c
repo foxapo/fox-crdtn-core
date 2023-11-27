@@ -71,6 +71,28 @@ class UI_CRDTNButton extends ScriptedWidgetEventHandler
         return super.OnClick(w, x, y, button);
     }
 
+    override bool OnMouseEnter(Widget w, int x, int y)
+	{
+        if(w == m_EntryButton)
+        {
+            Select(true);
+        }
+
+        
+        return true;
+	}
+
+	override bool OnMouseLeave(Widget w, Widget enterW, int x, int y)
+	{
+        if(w == m_EntryButton)
+        {
+            Select(false);
+        }
+
+        return true;
+    }
+
+
     void Select(bool state)
     {
         if (!m_Selected)

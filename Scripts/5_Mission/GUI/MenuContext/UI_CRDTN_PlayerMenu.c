@@ -44,11 +44,11 @@ class CRDTN_PlayerMenu : UI_CRDTNMenu
 
     override void InitNavigation(CRDTN_EMenuContext context)
     {
-        autoptr GridSpacerWidget categoryStats = AddNavigationCategory("Stats");
+        autoptr GridSpacerWidget categoryStats = AddNavigationCategory( m_NavigationGrid, "Stats");
         autoptr UI_CRDTNListEntry crafting = AddListEntry(categoryStats, "Crafting", "RULES", CRDTN_Icons.GetIcon(CRDTN_IconType.Crafting));
         autoptr UI_CRDTNListEntry base = AddListEntry(categoryStats, "Base Building", "RULES", CRDTN_Icons.GetIcon(CRDTN_IconType.Tent));
         autoptr UI_CRDTNListEntry rad = AddListEntry(categoryStats, "Radiation", "RULES", CRDTN_Icons.GetIcon(CRDTN_IconType.Radioactive));
-        autoptr GridSpacerWidget categoryLocations = AddNavigationCategory("Travel");
+        autoptr GridSpacerWidget categoryLocations = AddNavigationCategory(m_NavigationGrid, "Travel");
         autoptr UI_CRDTNListEntry vorkuta = AddListEntry(categoryLocations, "Vorkuta", "POINT OF INTEREST", CRDTN_Icons.GetIcon(CRDTN_IconType.Map));
         autoptr UI_CRDTNListEntry dam = AddListEntry(categoryLocations, "Sebjan Dam", "POINT OF INTEREST", CRDTN_Icons.GetIcon(CRDTN_IconType.Map));
         crafting.ContextData = GetMockDataCrafting();
