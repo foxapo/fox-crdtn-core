@@ -62,6 +62,7 @@ class UI_CRDTNButton extends ScriptedWidgetEventHandler
             {
                 EOnSelect.Invoke(this);
             }
+            
             else if (button == MouseState.RIGHT)
             {
                     // TODO: complete here

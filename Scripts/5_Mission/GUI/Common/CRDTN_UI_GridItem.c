@@ -23,14 +23,13 @@ class CRDTN_UI_GridItem
 		m_Item        = item;
 		m_CellSize    = size;
 		m_Parent      = parent;
+		
 		m_Root        = GetGame().GetWorkspace().CreateWidgets(GetLayoutPath(), m_Parent);
+		m_Root.GetScript(m_EventButton);
+
 		m_ItemPreview = ItemPreviewWidget.Cast(m_Root.FindAnyWidget("ItemPreview"));
 		m_Counter     = TextWidget.Cast(m_Root.FindAnyWidget("Counter"));
 		m_Selected    = m_Root.FindAnyWidget("Selected");
-		
-		m_EventButtonWidget = m_Root.FindAnyWidget("CRDTN_EventHandlerButton");
-		CRDTN_EventHandlerButton m_EventButton;
-		m_EventButtonWidget.GetScript(m_EventButton);
 
 		m_EventButton.InitButton();
 		m_EventButton.EClick.Insert(UI_OnClick);
