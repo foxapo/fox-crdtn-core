@@ -1,6 +1,7 @@
 class CRDTN_UI_CargoContainer
 {
     protected Widget m_ParentWidget;
+    protected EntityAI m_CargoEntity;
     protected EntityAI m_CargoOwner;
     protected CargoBase m_Cargo;
     protected ref CRDTN_UI_Grid m_Grid;
@@ -8,6 +9,7 @@ class CRDTN_UI_CargoContainer
     void CRDTN_UI_CargoContainer(Widget parent, EntityAI ent)
     {
         m_ParentWidget = parent;
+        m_CargoEntity = ent;
         m_Cargo = ent.GetInventory().GetCargo();
         m_CargoOwner = m_Cargo.GetCargoOwner();
         m_CargoOwner.GetOnItemAddedIntoCargo().Insert(AddCargo);
@@ -67,4 +69,41 @@ class CRDTN_UI_CargoContainer
     }
 
 
+};
+
+
+class CRDTN_UI_PlayerCargoContainer : CRDTN_UI_CargoContainer
+{
+
+    void CRDTN_UI_PlayerCargoContainer(Widget parent, EntityAI ent)
+    {
+        m_ParentWidget = parent;
+        m_CargoEntity = ent;
+        m_Cargo = ent.GetInventory().GetCargo();
+        m_CargoOwner = m_Cargo.GetCargoOwner();
+        m_CargoOwner.GetOnItemAddedIntoCargo().Insert(AddCargo);
+        m_CargoOwner.GetOnItemRemovedFromCargo().Insert(RemoveCargo);
+        m_Grid = new CRDTN_UI_Grid(m_ParentWidget, m_Cargo.GetWidth(), m_Cargo.GetHeight());
+        m_ParentWidget.Show(true);
+        Initialize();
+    }
+
+    override void Initialize()
+    {
+        if(!m_Cargo)
+        {
+            DebugUtils.Log("CRDTN_UI_PlayerCargoContainer::Initialize - No cargo");
+        }        
+
+     
+        for(int i = 0; i < objects.Count(); i++)
+        {
+            EntityAI item = objects.Get(i);
+            if(!item)
+            {
+                continue;
+            }
+            m_Grid.AddToGrid(item);
+        }
+    }
 };

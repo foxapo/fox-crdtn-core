@@ -50,8 +50,9 @@ class CRDTN_EventHandler
 	{
 		if(!events.Contains(invoker))
 		{
-			return;
+			AddEvent(invoker);
 		}
+		
 		if(events.Contains(invoker))
 		{
 			events[invoker].Insert(callback);

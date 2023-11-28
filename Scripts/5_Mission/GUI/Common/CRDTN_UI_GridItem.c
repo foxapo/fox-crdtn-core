@@ -12,7 +12,7 @@ class CRDTN_UI_GridItem
 
 	private ref ScriptInvoker EventMouseEnter = new ScriptInvoker();
 	private ref ScriptInvoker EventMouseLeave = new ScriptInvoker();
-	private ref ScriptInvoker EventClick      = new ScriptInvoker();
+	// private ref ScriptInvoker EventClick      = new ScriptInvoker();
 
 	private Widget m_EventButtonWidget;
 	private ref CRDTN_EventHandlerButton m_EventButton;
@@ -20,32 +20,35 @@ class CRDTN_UI_GridItem
     void CRDTN_UI_GridItem(InventoryItem item, Widget parent, float size)
     {
 
-		m_Item        = item;
-		m_CellSize    = size;
-		m_Parent      = parent;
+		m_Item     = item;
+		m_CellSize = size;
+		m_Parent   = parent;
 		
-		m_Root        = GetGame().GetWorkspace().CreateWidgets(GetLayoutPath(), m_Parent);
+		m_Root = GetGame().GetWorkspace().CreateWidgets(GetLayoutPath(), m_Parent);
 		m_Root.GetScript(m_EventButton);
 
 		m_ItemPreview = ItemPreviewWidget.Cast(m_Root.FindAnyWidget("ItemPreview"));
 		m_Counter     = TextWidget.Cast(m_Root.FindAnyWidget("Counter"));
+
 		m_Selected    = m_Root.FindAnyWidget("Selected");
 
-		m_EventButton.InitButton();
-		m_EventButton.EClick.Insert(UI_OnClick);
-		m_EventButton.EMouseEnter.Insert(UI_OnMouseEnter);
-		m_EventButton.EMouseLeave.Insert(UI_OnMouseLeave);
+		EventMouseEnter.Insert( UI_OnMouseEnter );
+		EventMouseLeave.Insert( UI_OnMouseLeave );
+
+		m_EventButton.SetEventInvokers(NULL, EventMouseEnter, EventMouseLeave);
+		m_EventButton.SetEventData(new Param1<string>(m_Item.GetType()));
+		m_EventButton.SetEventNames(GetDayZGame().CRDTNGetEventHandler(), CRDTN_Trading_Stock_Product_MouseClick, "", "");
 
         InitItemPreview();
 		UpdateInfo();
     }
 
-	// void ~CRDTN_UI_GridItem()
-	// {
-	// 	m_Item.GetOnItemFlipped().Remove( UpdateFlip );
-	// 	m_Root.Unlink();
-	// 	delete m_EventButton;
-	// }
+	  // void ~CRDTN_UI_GridItem()
+	  // {
+	  // 	m_Item.GetOnItemFlipped().Remove( UpdateFlip );
+	  // 	m_Root.Unlink();
+	  // 	delete m_EventButton;
+	  // }
 
 	string GetLayoutPath()
 	{
@@ -87,7 +90,7 @@ class CRDTN_UI_GridItem
 		return m_Item;
 	}
 
-	//! POSITION & SIZE !//
+	  //! POSITION & SIZE !//
 
     void SetCellSize(float size)
 	{
@@ -123,7 +126,7 @@ class CRDTN_UI_GridItem
 		GetGame().GetInventoryItemSize(m_Item, w, h);
 	}
 
-      //! FLIP !//
+        //! FLIP !//
 
     void Flip()
 	{
@@ -149,7 +152,7 @@ class CRDTN_UI_GridItem
 		m_ItemPreview.SetForceFlip(m_IsFlipped);
 	}
 
-	  // ! EVENTS ! //
+			  // ! EVENTS ! //
 
 	void UI_OnMouseEnter()
 	{
@@ -161,18 +164,19 @@ class CRDTN_UI_GridItem
 		m_Selected.Show(false);
 	}
 
-	// void DoubleClick(Widget w, int x, int y, int button)
-	// {
-	// 	if( button == MouseState.LEFT && !g_Game.IsLeftCtrlDown())
-	// 	{
-	// 		  // DO something with ctrl 
-	// 	}
+	  // void DoubleClick(Widget w, int x, int y, int button)
+	  // {
+	  // 	if( button == MouseState.LEFT && !g_Game.IsLeftCtrlDown())
+	  // 	{
+	  // 		  // DO something with ctrl 
+	  // 	}
 
-	// 	return;
-	// }
+	  // 	return;
+	  // }
 
-	void UI_OnClick()
+	void UI_OnClick(ref Param data)
 	{
-		CRDTN_GetTradingEvent(CRDTN_Trading_Stock_Product_MouseClick).Invoke(this);
+		DebugUtils.Log("CRDTN_UI_GridItem::UI_OnClick");
+		GetDayZGame().CRDTNGetEventHandler().GetEventInvoker(CRDTN_Trading_Stock_Product_MouseClick).Invoke(m_Item.GetType());
 	}
 };
