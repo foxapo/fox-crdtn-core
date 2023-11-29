@@ -8,11 +8,10 @@ class CRDTN_UI_Grid
     private int m_Width;
     private int m_Height;
     private ref CRDTN_UI_CargoContainer m_Container;
-    private ref map<ref Vector2, ref CRDTN_UI_GridItem> m_Items;
-
+    private ref map<EntityAI, ref CRDTN_UI_GridItem> m_Items;
     private float m_GridCellSize;
 
-    void CRDTN_UI_Grid(Widget parent, int width, int height)
+    void CRDTN_UI_Grid(Widget parent, int width, int height, ref CRDTN_UI_CargoContainer container = null)
     {
         m_Parent  = parent;
         m_Root    = GetGame().GetWorkspace().CreateWidgets(GetRootLayoutPath(), m_Parent);
@@ -20,16 +19,29 @@ class CRDTN_UI_Grid
         m_GridSpacer = m_Root.FindAnyWidget("Grid");
         m_Width   = width;
         m_Height  = height;
+        m_Container = container;
+        Initialize();
+    }
 
+    /// @brief Should be run upon construction
+    void Initialize()
+    {
         InitItemData();
         DrawRows();
     }
 
+    ref ScriptInvoker GetClickEvent()
+    {
+        return m_Container.GetClickEvent();
+    }
+
+    /// @brief Can be overriden to change the layout path
     string GetRootLayoutPath()
     {
         return CFG_CRDTN_UI_Layout_Grid_Wrapper;
     }
 
+    /// @brief Can be overriden to change the layout path
     string GetRowLayoutPath()
     {
         return CFG_CRDTN_UI_Layout_Grid_Row;
@@ -56,17 +68,9 @@ class CRDTN_UI_Grid
         return m_GridCellSize;
     }
 
-
     void InitItemData()
     {
-        m_Items = new map<ref Vector2, ref CRDTN_UI_GridItem>();
-        for (int x = 0; x < m_Width; x++)
-        {
-            for (int y = 0; y < m_Height; y++)
-            {
-                m_Items.Insert(new Vector2(x, y), null);
-            }
-        }
+        m_Items = new map<EntityAI, ref CRDTN_UI_GridItem>();
     }
 
     void DrawRows()
@@ -97,8 +101,21 @@ class CRDTN_UI_Grid
 		if(Class.CastTo(item, ent))
 		{
             DebugUtils.Log("CRDTN_UI_Grid::AddToGrid-InventoryItem " + item);
-            CRDTN_UI_GridItem gridItem  = new CRDTN_UI_GridItem(item, m_Content, m_GridCellSize);
+            CRDTN_UI_GridItem gridItem  = new CRDTN_UI_GridItem(this, item, m_Content, m_GridCellSize);
+            m_Items.Insert(ent, gridItem);
         }
     }
+
+    void RemoveFromGrid(EntityAI ent)
+    {
+        DebugUtils.Log("CRDTN_UI_Grid::RemoveFromGrid " + ent);
+        if(m_Items.Contains(ent))
+        {
+            CRDTN_UI_GridItem gridItem = m_Items.Get(ent);
+            m_Items.Remove(ent);
+            delete gridItem;
+        }
+    }
+
 
 };

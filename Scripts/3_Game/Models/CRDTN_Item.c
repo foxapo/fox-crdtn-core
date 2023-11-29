@@ -1,6 +1,9 @@
 class CRDTN_Item
 {
+    int Id;
     string ClassName;
+    bool HasQuantity;
+    int Quantity;
     string Slot;
     ref array<ref CRDTN_Item> Attachments;
 
