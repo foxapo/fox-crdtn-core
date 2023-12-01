@@ -3,6 +3,7 @@ class RestApiResponse<Class T>
     string requestType;
     string uniqueId = "";
     T data;
+    string message;
 
     RestApiRequestType GetRequestType()
     {
