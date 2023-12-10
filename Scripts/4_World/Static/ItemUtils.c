@@ -23,4 +23,23 @@ class CRDTN_Core_ItemUtils
 
         return entity;
     }
+
+    static bool IsInventoryEmpty(EntityAI ent)
+    {
+        array<EntityAI> objects = new array<EntityAI>;
+        int count = 0;
+        if (ent.GetInventory().EnumerateInventory(InventoryTraversalType.PREORDER, objects))
+        {
+            foreach (EntityAI obj : objects)
+            {
+                if (obj.GetType() == ent.GetType())
+                {
+                    continue;
+                }
+                count++;
+            }
+            return count == 0;
+        }
+        return true;
+    }
 };
