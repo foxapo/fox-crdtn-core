@@ -6,7 +6,8 @@ class CRDTN_RestCallbackBase : RestCallback
 
     override void OnError(int errorCode)
     {
-        DebugUtils.Log("[CRDTN_RestApiWrapper]: OnError()" + GetBackendApi().GetErrorCode(errorCode));
+        // DebugUtils.Log("[CRDTN_RestApiWrapper]: OnError() - ERROR CODE: >> " + errorCode);
+        // DebugUtils.Log("[CRDTN_RestApiWrapper]: OnError()" + GetBackendApi().GetErrorCode(errorCode));
         if (OnError)
         {
             OnError.Invoke();
@@ -15,7 +16,7 @@ class CRDTN_RestCallbackBase : RestCallback
 
     override void OnTimeout()
     {
-        DebugUtils.Log("[CRDTN_RestApiWrapper]: OnTimeout()");
+        // DebugUtils.Log("[CRDTN_RestApiWrapper]: OnTimeout()");
         if (OnTimeout)
         {
             OnTimeout.Invoke();

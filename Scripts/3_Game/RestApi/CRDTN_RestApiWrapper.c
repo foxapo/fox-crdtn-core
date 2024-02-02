@@ -10,6 +10,7 @@ class CRDTN_RestApiWrapper
     void CRDTN_RestApiWrapper(string url)
     {
         m_URL = url;
+        GetRestApi().EnableDebug(true);
         m_Callback = new CRDTN_RestCallbackBase;
         m_EventHandler = new CRDTN_EventHandler;
         if (m_Callback.OnSuccess)

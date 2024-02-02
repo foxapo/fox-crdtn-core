@@ -46,28 +46,30 @@ class CRDTN_EventHandler
 		}
 	}
 
-	void RegisterEvent(string invoker, func callback)
-	{
-		if(!events.Contains(invoker))
-		{
-			AddEvent(invoker);
-		}
-		
-		if(events.Contains(invoker))
-		{
-			events[invoker].Insert(callback);
-		}
-	}
+	// ! THIS WAS CAUSING ERRORS ! // 
 
-	void UnregisterEvent(string invoker, func callback)
-	{
-		if(!events.Contains(invoker))
-		{
-			return;
-		}
-		if(events.Contains(invoker))
-		{
-			events[invoker].Remove(callback);
-		}
-	}
+	// void RegisterEvent(string invoker, func callback)
+	// {
+	// 	if(!events.Contains(invoker))
+	// 	{
+	// 		AddEvent(invoker);
+	// 	}
+		
+	// 	if(events.Contains(invoker))
+	// 	{
+	// 		events[invoker].Insert(callback);
+	// 	}
+	// }
+
+	// void UnregisterEvent(string invoker, func callback)
+	// {
+	// 	if(!events.Contains(invoker))
+	// 	{
+	// 		return;
+	// 	}
+	// 	if(events.Contains(invoker))
+	// 	{
+	// 		events[invoker].Remove(callback);
+	// 	}
+	// }
 };
