@@ -8,6 +8,7 @@ class CRDTN_PluginBase : PluginBase
         InitRPCs();
         InitData();
         ParseData();
+        AfterInit();
     }
 
     bool IsInitialized()
@@ -20,6 +21,8 @@ class CRDTN_PluginBase : PluginBase
     void InitData();
     
     void ParseData();
+
+    void AfterInit();
 
     /// @brief Use thsi method to play a certain soundset on the player (clientside)
     /// @param soundSet 

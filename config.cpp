@@ -16,6 +16,7 @@ class CfgMods
     class CRDTN_Core
     {
         name = "CRDTN Core Mod";
+        version = "0.7.0";
         credits = "";
         author = "freeman@foxapo.com";
         type = "mod";

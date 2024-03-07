@@ -1,7 +1,7 @@
 modded class DayZGame
 {
-    private ref CRDTN_EventHandler  m_CRDTN_EventHandler        = new CRDTN_EventHandler;
-    private ref CRDTN_Config        m_CRDTN_Config              = NULL;
+    protected ref CRDTN_EventHandler  m_CRDTN_EventHandler        = new CRDTN_EventHandler;
+    protected ref CRDTN_Config        m_CRDTN_Config              = NULL;
 
     void DayZGame()
     {
