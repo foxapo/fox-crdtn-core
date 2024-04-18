@@ -44,20 +44,12 @@ class UI_CRDTNMenu extends UIScriptedMenu
         return CFG_CRDTN_UI_Menu_Layout;
     }
 
-    void InitLayout()
-    {
-        DebugUtils.Log("UI_CRDTNMenu::InitLayout");
-    }
+    void InitLayout() {}
 
-    void InitCache()
-    {
-        DebugUtils.Log("UI_CRDTNMenu::InitCache");
-        ClearCategories();
-    }
+    void InitCache() { ClearCategories(); }
 
     void ClearCategories()
     {        
-        DebugUtils.Log("UI_CRDTNMenu::ClearCategories");
         if(m_NavigationCategories)
         {
             foreach(Widget widget : m_NavigationCategories)
@@ -214,7 +206,7 @@ class UI_CRDTNMenu extends UIScriptedMenu
         UnlockPlayerControl();
     }
 
-            // Widgets helpers
+    // Widgets helpers
 
     protected Widget AddDivider()
     {

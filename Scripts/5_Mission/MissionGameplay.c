@@ -7,19 +7,18 @@ modded class MissionGameplay
         super.OnKeyPress(key);
         switch (key)
         {
-        case KeyCode.KC_ESCAPE: 
-            if (GetCRDTN_CorePlugin())
-            {
-                CloseCRDTN_Menu();
-            }
-            break;
-              // case KeyCode.KC_K:
-              //     if (GetCRDTN_CorePlugin())
-              //     {
-              //         OpenCRDTN_Menu();
-              //     }
-              //     break;
-              // }
+            case KeyCode.KC_ESCAPE:
+                if (GetCRDTN_CorePlugin())
+                {
+                    CloseCRDTN_Menu();
+                }
+                break;
+            case KeyCode.KC_K:
+                if (GetCRDTN_CorePlugin())
+                {
+                    OpenCRDTN_Menu();
+                }
+                break;
         }
     }
 
@@ -36,7 +35,7 @@ modded class MissionGameplay
     {
         if (GetGame().GetUIManager().GetMenu() != NULL)
         {
-              // Prevent from openiong the menu if another menu is already open
+            // Prevent from openiong the menu if another menu is already open
             return;
         }
 

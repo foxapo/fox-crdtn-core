@@ -42,4 +42,9 @@ class CRDTN_Core_ItemUtils
         }
         return true;
     }
+
+    static bool HasArmor(EntityAI ent)
+    {
+        return GetGame().ConfigIsExisting(string.Format("CfgVehicles %1 DamageSystem GlobalArmor", ent.GetType()));
+    }
 };

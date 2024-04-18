@@ -32,10 +32,10 @@ class CRDTN_UI_CargoContainer
 
     void Initialize()
     {
-        if(!m_Cargo)
-        {
-            DebugUtils.Log("CRDTN_UI_CargoContainer::Initialize - No cargo");
-        }
+        // if(!m_Cargo)
+        // {
+            // DebugUtils.Log("CRDTN_UI_CargoContainer::Initialize - No cargo");
+        // }
 
         for(int i = 0; i < m_Cargo.GetItemCount(); i++)
         {
@@ -85,7 +85,7 @@ class CRDTN_UI_CargoContainer
         autoptr Param1<InventoryItem> param = Param1<InventoryItem>.Cast(data);
         if(!param)
         {
-            DebugUtils.Log("CRDTN_UI_CargoContainer::OnGridItemClicked - No param");
+            // DebugUtils.Log("CRDTN_UI_CargoContainer::OnGridItemClicked - No param");
             return;
         }
 
@@ -97,7 +97,7 @@ class CRDTN_UI_CargoContainer
         }
         else
         {
-            DebugUtils.Log("CRDTN_UI_CargoContainer::OnGridItemClicked - No event set");
+            // DebugUtils.Log("CRDTN_UI_CargoContainer::OnGridItemClicked - No event set");
         }
     }
 
