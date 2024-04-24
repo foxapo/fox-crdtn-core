@@ -10,16 +10,29 @@ class UI_CRDTNMenu extends UIScriptedMenu
     protected TextWidget                m_ContentHeaderText;
     protected ScrollWidget              m_LeftPartScrollWrapper;
 
-                  // Cache
+    // Cache
     protected ref array<ref Widget> m_NavigationCategories  = new array<ref Widget>();
     protected ref array<ref Widget> m_CurrentContentWidgets = new array<ref Widget>();
     
-                  // Events
+    // Events
     ref ScriptInvoker EEntrySelected;
 
-                  // Selected entry
+    // Selected entry
     protected ref UI_CRDTNListEntry       m_SelectedEntry;
 
+    // Order of methods
+    // 1. Init
+    // 2. InitLayout
+    // 3. InitCache
+    // 4. ClearCategories
+    // 5. InitContext
+    // 6. InitMain
+    // 7. InitNavigation
+    // 8. InitContent
+    // 9. InitContextData
+    // 10. InitEntryData
+    // 11. ShowMenu
+    // 12. ShowMenuWithData
 
     override Widget Init()
     {
@@ -91,7 +104,6 @@ class UI_CRDTNMenu extends UIScriptedMenu
 
     void InitContext(CRDTN_EMenuContext context)
     {
-        DebugUtils.Log("UI_CRDTNMenu::InitContext::context " + context);
         InitMain(context);
         InitNavigation(context);
         if(m_SelectedEntry != null)

@@ -1,15 +1,15 @@
 class CRDTN_UI_Grid
 {
-    private Widget m_Root;
-    private Widget m_Parent;
-    private Widget m_Content;
-    private Widget m_GridSpacer;
-    private Widget m_Wrapper;
-    private int m_Width;
-    private int m_Height;
-    private ref CRDTN_UI_CargoContainer m_Container;
-    private ref map<EntityAI, ref CRDTN_UI_GridItem> m_Items;
-    private float m_GridCellSize;
+    protected Widget m_Root;
+    protected Widget m_Parent;
+    protected Widget m_Content;
+    protected Widget m_GridSpacer;
+    protected Widget m_Wrapper;
+    protected int m_Width;
+    protected int m_Height;
+    protected ref CRDTN_UI_CargoContainer m_Container;
+    protected ref map<EntityAI, ref CRDTN_UI_GridItem> m_Items;
+    protected float m_GridCellSize;
 
     void CRDTN_UI_Grid(Widget parent, int width, int height, ref CRDTN_UI_CargoContainer container = null)
     {
@@ -96,11 +96,11 @@ class CRDTN_UI_Grid
 
     void AddToGrid(EntityAI ent)
     {
-        DebugUtils.Log("CRDTN_UI_Grid::AddToGrid " + ent);
+        // DebugUtils.Log("CRDTN_UI_Grid::AddToGrid " + ent);
         InventoryItem item;
 		if(Class.CastTo(item, ent))
 		{
-            DebugUtils.Log("CRDTN_UI_Grid::AddToGrid-InventoryItem " + item);
+            // DebugUtils.Log("CRDTN_UI_Grid::AddToGrid-InventoryItem " + item);
             CRDTN_UI_GridItem gridItem  = new CRDTN_UI_GridItem(this, item, m_Content, m_GridCellSize);
             m_Items.Insert(ent, gridItem);
         }
@@ -108,7 +108,7 @@ class CRDTN_UI_Grid
 
     void RemoveFromGrid(EntityAI ent)
     {
-        DebugUtils.Log("CRDTN_UI_Grid::RemoveFromGrid " + ent);
+        // DebugUtils.Log("CRDTN_UI_Grid::RemoveFromGrid " + ent);
         if(m_Items.Contains(ent))
         {
             CRDTN_UI_GridItem gridItem = m_Items.Get(ent);

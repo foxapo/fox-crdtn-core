@@ -6,8 +6,8 @@ class CRDTN_UI_CargoContainer
     protected CargoBase m_Cargo;
     protected ref CRDTN_UI_Grid m_Grid;
 
-    private string m_EventOnClick;
-    private ref ScriptInvoker EOnGridItemClicked;
+    protected string m_EventOnClick;
+    protected ref ScriptInvoker EOnGridItemClicked;
 
     void CRDTN_UI_CargoContainer(Widget parent, EntityAI ent, string ON_CLICK_EVENT = "")
     {

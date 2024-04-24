@@ -10,12 +10,10 @@ class CRDTN_UI_GridItem
     protected ref InventoryLocation m_InventoryLocation;
 	protected float m_CellSize;
     protected bool m_IsFlipped;
-	
-	private Widget m_EventButtonWidget;
-	private ref CRDTN_EventHandlerButton m_EventButton;
-
-	private ref ScriptInvoker EventMouseEnter = new ScriptInvoker();
-	private ref ScriptInvoker EventMouseLeave = new ScriptInvoker();
+	protected Widget m_EventButtonWidget;
+	protected ref CRDTN_EventHandlerButton m_EventButton;
+	protected ref ScriptInvoker EventMouseEnter = new ScriptInvoker();
+	protected ref ScriptInvoker EventMouseLeave = new ScriptInvoker();
     
 	void CRDTN_UI_GridItem(ref CRDTN_UI_Grid grid, InventoryItem item, Widget parent, float size)
     {
@@ -39,8 +37,9 @@ class CRDTN_UI_GridItem
     }
 	
 	void ~CRDTN_UI_GridItem()
-	{
-		m_Item.GetOnItemFlipped().Remove( UpdateFlip );
+	{ 
+		if(m_Item)
+			m_Item.GetOnItemFlipped().Remove( UpdateFlip );
 		m_Root.Unlink();
 		delete m_EventButton;
 	}
@@ -76,8 +75,9 @@ class CRDTN_UI_GridItem
 
 	void UpdateInfo()
 	{
-		int randomPrice = Math.RandomInt(1, 100);
-		m_Counter.SetText(randomPrice.ToString() + "$");
+		// TODO: Implement the pricing here probably or change the trader stuff 
+		
+		m_Counter.SetText("0$");
 	}
 
 	EntityAI GetEntity()
@@ -147,16 +147,20 @@ class CRDTN_UI_GridItem
 		m_ItemPreview.SetForceFlip(m_IsFlipped);
 	}
 
-			  // ! EVENTS ! //
+	// ! EVENTS ! //
 
 	void UI_OnMouseEnter()
 	{
 		m_Selected.Show(true);
+		float x,y;
+		m_Root.GetPos(x,y);
+		ItemManager.GetInstance().PrepareTooltip(m_Item,x,y);
 	}
 
 	void UI_OnMouseLeave()
 	{
 		m_Selected.Show(false);
+		ItemManager.GetInstance().HideTooltip();
 	}
 
 					  // void DoubleClick(Widget w, int x, int y, int button)

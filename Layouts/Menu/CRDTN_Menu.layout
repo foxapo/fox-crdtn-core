@@ -22,7 +22,7 @@ FrameWidgetClass rootFrame {
    imageTexture "{3EAFE0E7CB0D39E1}CRDTN_Quests/data/themes/default.edds"
    mode blend
    "src alpha" 1
-   stretch 1
+   "stretch mode" stretch_w_h
    filter 0
    {
     ImageWidgetClass Wrapper {
@@ -40,7 +40,7 @@ FrameWidgetClass rootFrame {
      vexactsize 0
      scaled 0
      mode blend
-     stretch 1
+     "stretch mode" stretch_w_h
      {
       PanelWidgetClass Top {
        ignorepointer 1
@@ -69,8 +69,6 @@ FrameWidgetClass rootFrame {
          image0 ""
          mode opaque
          "src alpha" 1
-         "no wrap" 0
-         stretch 0
          filter 1
          "Transition width" 0.201
         }
@@ -300,7 +298,7 @@ FrameWidgetClass rootFrame {
              imageTexture "{1D11F57FDCF9CEB4}CRDTN_Quests/data/images/icons/70.edds"
              mode blend
              "src alpha" 1
-             stretch 1
+             "stretch mode" stretch_w_h
             }
            }
           }
@@ -384,8 +382,7 @@ FrameWidgetClass rootFrame {
              imageTexture "{D63F4936FF4C9DF0}CRDTN_Quests/data/pattern.edds"
              mode blend
              "src alpha" 1
-             "no wrap" 0
-             stretch 1
+             "stretch mode" stretch_w_h
             }
            }
           }

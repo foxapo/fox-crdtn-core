@@ -24,7 +24,7 @@ modded class MissionGameplay
 
     void CloseCRDTN_Menu()
     {
-        CRDTN_PlayerMenu menu = CRDTN_PlayerMenu.Cast(GetGame().GetUIManager().GetMenu());
+        UI_CRDTNMenu menu = UI_CRDTNMenu.Cast(GetGame().GetUIManager().GetMenu());
         if (menu)
         {
             menu.HideMenu();
