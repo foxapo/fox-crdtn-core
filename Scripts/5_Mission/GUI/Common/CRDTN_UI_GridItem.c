@@ -51,7 +51,7 @@ class CRDTN_UI_GridItem
 
     void InitItemPreview()
     {
-		DebugUtils.Log("CRDTN_UI_GridItem::InitItemPreview of " + m_Item.GetType());
+		// DebugUtils.Log("CRDTN_UI_GridItem::InitItemPreview of " + m_Item.GetType());
 		m_ItemPreview.SetItem(m_Item);
         m_InventoryLocation = new InventoryLocation;
         m_Item.GetInventory().GetCurrentInventoryLocation(m_InventoryLocation);
@@ -149,29 +149,28 @@ class CRDTN_UI_GridItem
 
 	// ! EVENTS ! //
 
-	void UI_OnMouseEnter()
+	void UI_OnMouseEnter(int x, int y)
 	{
 		m_Selected.Show(true);
-		float x,y;
-		m_Root.GetPos(x,y);
-		ItemManager.GetInstance().PrepareTooltip(m_Item,x,y);
+		ItemManager.GetInstance().PrepareTooltip(m_Item, x, y);
+		ItemManager.GetInstance().ShowTooltip();
 	}
 
-	void UI_OnMouseLeave()
+	void UI_OnMouseLeave(int x, int y)
 	{
 		m_Selected.Show(false);
 		ItemManager.GetInstance().HideTooltip();
 	}
 
-					  // void DoubleClick(Widget w, int x, int y, int button)
-					  // {
-					  // 	if( button == MouseState.LEFT && !g_Game.IsLeftCtrlDown())
-					  // 	{
-					  // 		  // DO something with ctrl 
-					  // 	}
+	// void DoubleClick(Widget w, int x, int y, int button)
+	// {
+	// 	if( button == MouseState.LEFT && !g_Game.IsLeftCtrlDown())
+	// 	{
+	// 		  // DO something with ctrl 
+	// 	}
 
-					  // 	return;
-					  // }
+	// 	return;
+	// }
 
-			  // ! Event ON CLICK and more important events are called on the parental element ! // 
+	// ! Event ON CLICK and more important events are called on the parental element ! // 
 };

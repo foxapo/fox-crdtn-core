@@ -209,6 +209,15 @@ class UI_CRDTNMenu extends UIScriptedMenu
         super.OnShow();
         RegisterListeners();
         LockPlayerControl();
+        Mission mission = GetGame().GetMission();
+		if (mission)
+		{
+			IngameHud hud = IngameHud.Cast(mission.GetHud());
+			if (hud)
+			{
+				hud.ShowQuickbarUI(false);
+			}
+		}
     }
 
     override void OnHide()
@@ -216,6 +225,16 @@ class UI_CRDTNMenu extends UIScriptedMenu
         super.OnHide();
         UnRegisterListeners();
         UnlockPlayerControl();
+        Mission mission = GetGame().GetMission();
+		if (mission)
+		{
+			IngameHud hud = IngameHud.Cast(mission.GetHud());
+			if (hud)
+			{
+				hud.ShowQuickbarUI(true);
+			}
+		}
+        ItemManager.GetInstance().HideTooltip();
     }
 
     // Widgets helpers
