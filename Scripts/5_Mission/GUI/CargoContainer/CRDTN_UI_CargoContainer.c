@@ -9,6 +9,8 @@ class CRDTN_UI_CargoContainer
     protected string m_EventOnClick;
     protected ref ScriptInvoker EOnGridItemClicked;
 
+    EContainerType ContainerType;
+
     void CRDTN_UI_CargoContainer(Widget parent, EntityAI ent, string ON_CLICK_EVENT = "")
     {
         m_ParentWidget = parent;
@@ -99,6 +101,11 @@ class CRDTN_UI_CargoContainer
         {
             // DebugUtils.Log("CRDTN_UI_CargoContainer::OnGridItemClicked - No event set");
         }
+    }
+
+    void SetContainerType(EContainerType containerType)
+    {
+        ContainerType = containerType;
     }
 
 };

@@ -44,3 +44,11 @@ enum CRDTN_DataFeedType
     DEFAULT,
     WORKBENCH,
 };
+
+enum EContainerType
+{
+    TRADER_STOCK,
+    TRADER_BUY,
+    TRADER_SELL,
+    TRADER_PLAYER
+};

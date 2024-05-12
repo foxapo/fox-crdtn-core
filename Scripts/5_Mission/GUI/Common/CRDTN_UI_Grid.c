@@ -102,6 +102,7 @@ class CRDTN_UI_Grid
 		{
             // DebugUtils.Log("CRDTN_UI_Grid::AddToGrid-InventoryItem " + item);
             CRDTN_UI_GridItem gridItem  = new CRDTN_UI_GridItem(this, item, m_Content, m_GridCellSize);
+            gridItem.InitContainerContext(m_Container.ContainerType);
             m_Items.Insert(ent, gridItem);
         }
     }

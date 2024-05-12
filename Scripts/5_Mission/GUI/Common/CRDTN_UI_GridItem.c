@@ -73,6 +73,26 @@ class CRDTN_UI_GridItem
 		UpdateFlip();
     }
 
+	void InitContainerContext(EContainerType containerType)
+	{
+		switch(containerType)
+		{
+			case EContainerType.TRADER_STOCK:
+			case EContainerType.TRADER_BUY:
+				ItemBase productItem = ItemBase.Cast(m_Item);
+				autoptr DtoProduct product = productItem.GetProduct();
+				m_Counter.SetText(product.GetPrice());
+				break;
+			case EContainerType.TRADER_SELL:
+			case EContainerType.TRADER_PLAYER:
+				break;
+			default:
+				break;
+		}
+
+
+	}
+
 	void UpdateInfo()
 	{
 		// TODO: Implement the pricing here probably or change the trader stuff 
