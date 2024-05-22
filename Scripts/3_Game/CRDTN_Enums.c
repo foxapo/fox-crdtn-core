@@ -1,3 +1,6 @@
+// ! DO NOT GET CONFUSED BY THIS, IT IS USED ACROSS MULTIPLE MODS WHICH ARE NOT EVEN PUBLIC ! // 
+// ! DO NOT REWRITE THIS FILE - ONLY ADD NEW VALUES AT THE END ! //
+
 /// @brief Used for in the combat to determine which kind of combat situation happened
 enum CRDTN_ECombatEvent
 {
@@ -45,6 +48,8 @@ enum CRDTN_DataFeedType
     WORKBENCH,
 };
 
+/// @brief Extend the contaienr type if you need more contexts, for example quests, workbench 
+/// Use this to distinguish the visual appearance of the CRDTN_UI_GridItem::InitContainerContext 
 enum EContainerType
 {
     TRADER_STOCK,

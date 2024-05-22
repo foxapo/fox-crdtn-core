@@ -5,48 +5,40 @@ class CRDTN_UI_CargoContainer
     protected EntityAI m_CargoOwner;
     protected CargoBase m_Cargo;
     protected ref CRDTN_UI_Grid m_Grid;
+    protected bool _isPlayer = false;
 
-    protected string m_EventOnClick;
-    protected ref ScriptInvoker EOnGridItemClicked;
+    protected EContainerType _containerType;
 
-    EContainerType ContainerType;
-
-    void CRDTN_UI_CargoContainer(Widget parent, EntityAI ent, string ON_CLICK_EVENT = "")
+    void CRDTN_UI_CargoContainer(Widget parent, EntityAI ent, EContainerType containerType, string ON_CLICK_EVENT = "", bool isPlayer = false)
     {
         m_ParentWidget = parent;
+        
+        _isPlayer = isPlayer;
+        _containerType = containerType;
+
         m_CargoEntity = ent;
         m_Cargo = ent.GetInventory().GetCargo();
         m_CargoOwner = m_Cargo.GetCargoOwner();
         m_CargoOwner.GetOnItemAddedIntoCargo().Insert(AddCargo);
         m_CargoOwner.GetOnItemRemovedFromCargo().Insert(RemoveCargo);
         m_Grid = new CRDTN_UI_Grid(m_ParentWidget, m_Cargo.GetWidth(), m_Cargo.GetHeight(), this);
-        m_EventOnClick = ON_CLICK_EVENT;
-        EOnGridItemClicked = new ScriptInvoker();
-        EOnGridItemClicked.Insert(OnGridItemClicked);
+    
         m_ParentWidget.Show(true);
-        Initialize();
-    }
 
-    ref ScriptInvoker GetClickEvent()
-    {
-        return EOnGridItemClicked;
+        Initialize();
     }
 
     void Initialize()
     {
-        // if(!m_Cargo)
-        // {
-            // DebugUtils.Log("CRDTN_UI_CargoContainer::Initialize - No cargo");
-        // }
-
-        for(int i = 0; i < m_Cargo.GetItemCount(); i++)
+        for(int k = 0; k < m_Cargo.GetItemCount(); k++)
         {
-            EntityAI item = m_Cargo.GetItem(i);
+            EntityAI item = m_Cargo.GetItem(k);
             if(!item)
             {
                 continue;
             }
-            m_Grid.AddToGrid(item);
+            autoptr CRDTN_UI_GridItem gridItem = m_Grid.AddToGrid(item);
+            gridItem.InitContainerContext(_containerType);
         }
         m_Grid.Resize();
     }
@@ -73,7 +65,12 @@ class CRDTN_UI_CargoContainer
 
     void AddCargo(EntityAI ent)
     {
-        m_Grid.AddToGrid(ent);
+        if(!ent)
+        {
+            return;
+        }
+        autoptr CRDTN_UI_GridItem gridItem = m_Grid.AddToGrid(ent);
+        gridItem.InitContainerContext(_containerType);
     }
 
     void RemoveCargo(EntityAI ent)
@@ -81,31 +78,18 @@ class CRDTN_UI_CargoContainer
         m_Grid.RemoveFromGrid(ent);
     }
 
-    void OnGridItemClicked(ref Param data)
-    {
-        
-        autoptr Param1<InventoryItem> param = Param1<InventoryItem>.Cast(data);
-        if(!param)
-        {
-            // DebugUtils.Log("CRDTN_UI_CargoContainer::OnGridItemClicked - No param");
-            return;
-        }
-
-        InventoryItem item = param.param1;
-
-        if(m_EventOnClick != "")
-        {
-            GetDayZGame().CRDTNGetEventHandler().GetEventInvoker(m_EventOnClick).Invoke(item);
-        }
-        else
-        {
-            // DebugUtils.Log("CRDTN_UI_CargoContainer::OnGridItemClicked - No event set");
-        }
-    }
-
     void SetContainerType(EContainerType containerType)
     {
-        ContainerType = containerType;
+        _containerType = containerType;
     }
 
+    EContainerType GetContainerType()
+    {
+        return _containerType;
+    }
+
+    CRDTN_UI_Grid GetGrid()
+    {
+        return m_Grid;
+    }
 };

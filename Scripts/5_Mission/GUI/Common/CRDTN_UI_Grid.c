@@ -29,12 +29,6 @@ class CRDTN_UI_Grid
         InitItemData();
         DrawRows();
     }
-
-    ref ScriptInvoker GetClickEvent()
-    {
-        return m_Container.GetClickEvent();
-    }
-
     /// @brief Can be overriden to change the layout path
     string GetRootLayoutPath()
     {
@@ -51,6 +45,16 @@ class CRDTN_UI_Grid
     {
         delete m_Items;
         m_Root.Unlink();
+    }
+
+    Widget GetRoot()
+    {
+        return m_Root;
+    }
+
+    Widget GetContent()
+    {
+        return m_Content;
     }
 
     int GetWidth()
@@ -94,17 +98,17 @@ class CRDTN_UI_Grid
 		}
     }
 
-    void AddToGrid(EntityAI ent)
+    CRDTN_UI_GridItem AddToGrid(EntityAI ent)
     {
         // DebugUtils.Log("CRDTN_UI_Grid::AddToGrid " + ent);
+        CRDTN_UI_GridItem gridItem;
         InventoryItem item;
 		if(Class.CastTo(item, ent))
 		{
-            // DebugUtils.Log("CRDTN_UI_Grid::AddToGrid-InventoryItem " + item);
-            CRDTN_UI_GridItem gridItem  = new CRDTN_UI_GridItem(this, item, m_Content, m_GridCellSize);
-            gridItem.InitContainerContext(m_Container.ContainerType);
-            m_Items.Insert(ent, gridItem);
+            gridItem  = new CRDTN_UI_GridItem(this, item, m_Content, m_GridCellSize);
+            m_Items.Set(ent, gridItem);
         }
+        return gridItem;
     }
 
     void RemoveFromGrid(EntityAI ent)
@@ -112,11 +116,7 @@ class CRDTN_UI_Grid
         // DebugUtils.Log("CRDTN_UI_Grid::RemoveFromGrid " + ent);
         if(m_Items.Contains(ent))
         {
-            CRDTN_UI_GridItem gridItem = m_Items.Get(ent);
-            m_Items.Remove(ent);
-            delete gridItem;
+            m_Items.Set(ent, null);
         }
     }
-
-
 };

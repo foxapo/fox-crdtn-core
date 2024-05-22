@@ -6,7 +6,7 @@ class CRDTN_EventHandlerButton extends ScriptedWidgetEventHandler
     private ref Param m_ContextData;
 
     private ref CRDTN_EventHandler m_EventHandler;
-    private string m_ButtonDownEvent = "";
+    private string m_ButtonDownEvent  = "";
     private string m_ButtonEnterEvent = "";
     private string m_ButtonLeaveEvent = "";
 
@@ -16,26 +16,35 @@ class CRDTN_EventHandlerButton extends ScriptedWidgetEventHandler
 
     void OnWidgetScriptInit(Widget w)
     {
-        DebugUtils.Log("CRDTN_EventHandlerButton::OnWidgetScriptInit");
         m_Root         = w;
         m_ButtonWidget = ButtonWidget.Cast(m_Root.FindAnyWidget("CRDTN_EventHandlerButton"));
         w.SetHandler(this);
     }
 
-    void SetEventInvokers(ref ScriptInvoker click, ref ScriptInvoker mouseEnter, ref ScriptInvoker mouseLeave)
+    void SetEventInvokers(ref ScriptInvoker mouseClick, ref ScriptInvoker mouseEnter, ref ScriptInvoker mouseLeave)
     {
-        DebugUtils.Log("CRDTN_EventHandlerButton::SetEventInvokers");
-        EMouseClick      = click;
+        EMouseClick = mouseClick;
         EMouseEnter = mouseEnter;
         EMouseLeave = mouseLeave;
     }
 
     void SetEventNames(ref CRDTN_EventHandler eventHandler, string buttonDownEvent = "", string buttonEnterEvent = "", string buttonLeaveEvent = "")
     {
-        m_EventHandler = eventHandler;
+        m_EventHandler     = eventHandler;
         m_ButtonDownEvent  = buttonDownEvent;
         m_ButtonEnterEvent = buttonEnterEvent;
         m_ButtonLeaveEvent = buttonLeaveEvent;
+    }
+
+    void ~CRDTN_EventHandlerButton()
+    {
+        m_ButtonWidget = NULL;
+        m_ContextData = NULL;
+        m_EventHandler = NULL;
+        EMouseClick = NULL;
+        EMouseEnter = NULL;
+        EMouseLeave = NULL;
+        // m_Root.Unlink();
     }
 
     void SetEventData(ref Param data)
@@ -45,25 +54,17 @@ class CRDTN_EventHandlerButton extends ScriptedWidgetEventHandler
 
     override bool OnMouseButtonDown(Widget w, int x, int y, int button)
     {
-        // DebugUtils.Log("CRDTN_EventHandlerButton::OnMouseButtonDown");
-        // DebugUtils.Log("CRDTN_EventHandlerButton::OnMouseButtonDown " + w.GetName() + " " + x + " " + y + " " + button);
-
         if (w != m_ButtonWidget)
         {
             return false;
         }
 
-        // TODO - Double click, right click, for now use all 
 
-        if (EMouseClick)
-        {
-            // DebugUtils.Log("CRDTN_EventHandlerButton::OnMouseButtonDown EMouseClick");
-            EMouseClick.Invoke(m_ContextData);
-        }
+        EMouseClick.Invoke(m_ContextData);	
+       
 
         if(m_ButtonDownEvent != "" && m_EventHandler)
         {
-            // DebugUtils.Log("CRDTN_EventHandlerButton::OnMouseButtonDown m_ButtonDownEvent");
             m_EventHandler.GetEventInvoker(m_ButtonDownEvent).Invoke(m_ContextData);
         }
 
@@ -72,7 +73,6 @@ class CRDTN_EventHandlerButton extends ScriptedWidgetEventHandler
 
     override bool OnMouseEnter(Widget w, int x, int y)
     {
-        DebugUtils.Log("CRDTN_EventHandlerButton::OnMouseEnter");
         if (w != m_ButtonWidget || (m_ButtonEnterEvent == "" && !EMouseEnter))
         {
             return false;
@@ -93,8 +93,6 @@ class CRDTN_EventHandlerButton extends ScriptedWidgetEventHandler
 
     override bool OnMouseLeave(Widget w, Widget enterW, int x, int y)
     {
-
-        DebugUtils.Log("CRDTN_EventHandlerButton::OnMouseLeave");
         if (w != m_ButtonWidget || (m_ButtonLeaveEvent == "" && !EMouseLeave))
         {
             return false;
