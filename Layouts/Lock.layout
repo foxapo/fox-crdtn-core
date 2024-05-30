@@ -1,0 +1,53 @@
+FrameWidgetClass rootFrame {
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ {
+  ImageWidgetClass LockedInLoot {
+   visible 1
+   clipchildren 1
+   ignorepointer 0
+   ignoregloballv 1
+   keepsafezone 0
+   color 0.5216 0.5216 0.5216 0.549
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   scaled 0
+   imageTexture "{9596E68DA677A907}CRDTN_Gui/Data/devices/big_pattern.edds"
+   mode blend
+   "src alpha" 1
+   "stretch mode" none
+   {
+    ImageWidgetClass Loader {
+     visible 1
+     ignorepointer 1
+     position 0 0
+     size 50 50
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     scriptclass ""
+     image0 "set:stalker_loading image:loading0"
+     imageTexture ""
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+    }
+   }
+  }
+ }
+}

@@ -25,4 +25,10 @@ enum RestApiRequestType
   GET_ALL_RAD_ZONES_COUNT       ,  // RADIATION
   METRICS_LOOTED_ITEMS_ALL      ,  // METRICS
   GET_ALL_TRADER_PRICES         ,  // TRADING
+  PENDING_PRODUCT_CREATION      ,  // TRADING
+  ITEM_BASE_CREATE              ,  // ITEM_BASE
+  ITEM_BASE_UPDATE              ,  // ITEM_BASE
+  ITEM_BASE_DELETE              ,  // ITEM_BASE
+  ITEM_BASE_GET                 ,  // ITEM_BASE
+  ITEM_BASE_GET_ALL                // ITEM_BASE
 };
