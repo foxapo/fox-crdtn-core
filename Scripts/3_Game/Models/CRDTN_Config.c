@@ -23,7 +23,7 @@ class CRDTN_Config
         DebugUtils.Log(CRDTN_IntroMusic.ToString());
     }
 
-    static void Save(ref CRDTN_Config dataInstance)
+    static void Save(CRDTN_Config dataInstance)
     {
         JsonFileLoader<ref CRDTN_Config>.JsonSaveFile(CFG_CRDTN_ConfigPath, dataInstance);
     }

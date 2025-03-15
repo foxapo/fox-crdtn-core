@@ -30,7 +30,7 @@ modded class SurvivorBase
         }
     }
 
-    void SetNpcInfo(ref CRDTN_NpcInfo npcInfo)
+    void SetNpcInfo( CRDTN_NpcInfo npcInfo)
     {
         CRDTN_FileLogger.GetInstance("Trading").Log("SetNpcInfo " + npcInfo);
         m_NpcInfo = npcInfo;
@@ -53,7 +53,7 @@ modded class SurvivorBase
 
     /// @brief Override this in the mods to add custom actions to the NPC
     /// @param npcInfo 
-    void SetNpcInfoImpl(ref CRDTN_NpcInfo npcInfo);
+    void SetNpcInfoImpl( CRDTN_NpcInfo npcInfo);
     
     void EquipInHands(string classname)
     {

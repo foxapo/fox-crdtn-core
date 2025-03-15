@@ -73,7 +73,7 @@ class UI_CRDTNMenu extends UIScriptedMenu
         }
     }
 
-    void UI_OnListEntrySelected(ref UI_CRDTNListEntry listEntry)
+    void UI_OnListEntrySelected( UI_CRDTNListEntry listEntry)
     {
         DebugUtils.Log("UI_CRDTNMenu::UI_OnListEntrySelected");
                 // Prevents of clicking on the same entry twice
@@ -124,7 +124,7 @@ class UI_CRDTNMenu extends UIScriptedMenu
 
     void InitContextData(Param data, CRDTN_EMenuContext context);
 
-    void InitEntryData(ref Param data);
+    void InitEntryData( Param data);
 
     void ShowMenu(CRDTN_EMenuContext context = CRDTN_EMenuContext._NONE)
     {
@@ -265,7 +265,7 @@ class UI_CRDTNMenu extends UIScriptedMenu
         return bodyText;
     }
 
-    protected GridSpacerWidget AddNavigationCategory(ref Widget parent, string text)
+    protected GridSpacerWidget AddNavigationCategory( Widget parent, string text)
     {
         Widget category = GetGame().GetWorkspace().CreateWidgets(CFG_CRDTN_UI_Menu_Category, parent);
         m_NavigationCategories.Insert(category);
@@ -275,7 +275,7 @@ class UI_CRDTNMenu extends UIScriptedMenu
         return categoryGrid;
     }
 
-    protected UI_CRDTNListEntry AddListEntry(ref GridSpacerWidget navigationCategory, string primaryText = "", string secondaryText = "", string entryIconPath = "")
+    protected UI_CRDTNListEntry AddListEntry( GridSpacerWidget navigationCategory, string primaryText = "", string secondaryText = "", string entryIconPath = "")
     {
         UI_CRDTNListEntry listEntry;
         Widget entryWidget = GetGame().GetWorkspace().CreateWidgets(CFG_CRDTN_UI_Menu_ListEntry, navigationCategory);

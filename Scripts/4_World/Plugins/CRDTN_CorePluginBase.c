@@ -8,6 +8,7 @@ class CRDTN_CorePluginBase : CRDTN_PluginBase
         GetRPCManager().AddRPC(CFG_CRDTN_Core_Prefix, "RPC_ServerConfigReceived", this, SingleplayerExecutionType.Both);
         GetRPCManager().AddRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClient", this, SingleplayerExecutionType.Both);
         GetRPCManager().AddRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClientObject", this, SingleplayerExecutionType.Both);
+        GetRPCManager().AddRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClientEnvironment", this, SingleplayerExecutionType.Both);
     }
 
     CRDTN_Config GetConfig()

@@ -13,7 +13,7 @@ class CRDTN_CorePluginClient: CRDTN_CorePluginBase
       /// @param ctx 
       /// @param sender 
       /// @param target 
-    void RPC_ServerConfigReceived(CallType type, ref ParamsReadContext ctx, ref PlayerIdentity sender, ref Object target)
+    void RPC_ServerConfigReceived(CallType type,  ParamsReadContext ctx,  PlayerIdentity sender,  Object target)
     {
         if (type != CallType.Client)
             return;
@@ -44,7 +44,7 @@ class CRDTN_CorePluginClient: CRDTN_CorePluginBase
       /// @param ctx 
       /// @param sender 
       /// @param target 
-    void RPC_PlaySoundOnClient(CallType type, ref ParamsReadContext ctx, ref PlayerIdentity sender, ref Object target)
+    void RPC_PlaySoundOnClient(CallType type,  ParamsReadContext ctx,  PlayerIdentity sender,  Object target)
     {
         if (type != CallType.Client)
             return;
@@ -59,7 +59,7 @@ class CRDTN_CorePluginClient: CRDTN_CorePluginBase
         CRDTN_PluginBase.CRDTN_PlaySound(data.param1, PlayerBase.Cast(GetGame().GetPlayer()));
     }
 
-    void RPC_PlaySoundOnClientObject(CallType type, ref ParamsReadContext ctx, ref PlayerIdentity sender, ref Object target)
+    void RPC_PlaySoundOnClientObject(CallType type,  ParamsReadContext ctx,  PlayerIdentity sender,  Object target)
     {
         if (type != CallType.Client)
             return;
@@ -77,6 +77,21 @@ class CRDTN_CorePluginClient: CRDTN_CorePluginBase
         }
 
         CRDTN_PluginBase.CRDTN_PlaySound(data.param1, target);
+    }
+
+    void RPC_PlaySoundOnClientEnvironment(CallType type,  ParamsReadContext ctx,  PlayerIdentity sender,  Object target)
+    {
+        if (type != CallType.Client)
+            return;
+
+        DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Client::RPC_PlaySoundOnClientEnvironment()");
+        Param2<string, vector> data;
+        if (!ctx.Read(data))
+        {
+            return;
+        }
+
+        CRDTN_PluginBase.CRDTN_PlaySoundEnv(data.param1, data.param2);
     }
 
     /* --------------------------------------------------    INTERNAL    -------------------------------------------------- */

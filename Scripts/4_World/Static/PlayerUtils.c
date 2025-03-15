@@ -3,7 +3,7 @@ class CRDTN_PlayerUtils
 
     static const float PLAYER_RANGE_CHECK_THRESHOLD = 50;
 
-    static void CheckPlayerInRange(EntityAI ent, float radius, out ref set<PlayerBase> players)
+    static void CheckPlayerInRange(EntityAI ent, float radius, out  set<PlayerBase> players)
     {
         
         autoptr array<CargoBase> cargos = new array<CargoBase>;

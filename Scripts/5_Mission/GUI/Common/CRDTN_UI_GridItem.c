@@ -19,7 +19,7 @@ class CRDTN_UI_GridItem
 	ref ScriptInvoker EventMouseLeave = new ScriptInvoker();
 	ref ScriptInvoker EventMouseClick = new ScriptInvoker();
 		
-	void CRDTN_UI_GridItem(ref CRDTN_UI_Grid grid, InventoryItem item, Widget parent, float size)
+	void CRDTN_UI_GridItem( CRDTN_UI_Grid grid, InventoryItem item, Widget parent, float size)
 	{
 		m_ParentGrid = grid;
 		m_Item       = item;

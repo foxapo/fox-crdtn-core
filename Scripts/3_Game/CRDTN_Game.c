@@ -1,3 +1,4 @@
+
 modded class DayZGame
 {
     protected ref CRDTN_EventHandler  m_CRDTN_EventHandler        = new CRDTN_EventHandler;
@@ -86,7 +87,7 @@ modded class DayZGame
     }
 
     /// @brief This is mainly called on the client after receiving the config from the server
-    void SetCRDTNCoreConfig(ref CRDTN_Config cfg)
+    void SetCRDTNCoreConfig(CRDTN_Config cfg)
     {
         m_CRDTN_Config = cfg;
     }

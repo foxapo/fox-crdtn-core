@@ -21,14 +21,14 @@ class CRDTN_EventHandlerButton extends ScriptedWidgetEventHandler
         w.SetHandler(this);
     }
 
-    void SetEventInvokers(ref ScriptInvoker mouseClick, ref ScriptInvoker mouseEnter, ref ScriptInvoker mouseLeave)
+    void SetEventInvokers( ScriptInvoker mouseClick,  ScriptInvoker mouseEnter,  ScriptInvoker mouseLeave)
     {
         EMouseClick = mouseClick;
         EMouseEnter = mouseEnter;
         EMouseLeave = mouseLeave;
     }
 
-    void SetEventNames(ref CRDTN_EventHandler eventHandler, string buttonDownEvent = "", string buttonEnterEvent = "", string buttonLeaveEvent = "")
+    void SetEventNames( CRDTN_EventHandler eventHandler, string buttonDownEvent = "", string buttonEnterEvent = "", string buttonLeaveEvent = "")
     {
         m_EventHandler     = eventHandler;
         m_ButtonDownEvent  = buttonDownEvent;
@@ -47,7 +47,7 @@ class CRDTN_EventHandlerButton extends ScriptedWidgetEventHandler
         // m_Root.Unlink();
     }
 
-    void SetEventData(ref Param data)
+    void SetEventData( Param data)
     {
         m_ContextData = data;
     }

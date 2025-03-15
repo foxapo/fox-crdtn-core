@@ -62,7 +62,7 @@ class CRDTN_PlayerMenu : UI_CRDTNMenu
     {
     }
 
-    override void InitEntryData(ref Param data)
+    override void InitEntryData( Param data)
     {
         Param2<string, string> data2 = Param2<string, string>.Cast(data);
         AddBodyHeader(data2.param1);

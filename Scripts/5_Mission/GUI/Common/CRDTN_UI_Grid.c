@@ -11,7 +11,7 @@ class CRDTN_UI_Grid
     protected ref map<EntityAI, ref CRDTN_UI_GridItem> m_Items;
     protected float m_GridCellSize;
 
-    void CRDTN_UI_Grid(Widget parent, int width, int height, ref CRDTN_UI_CargoContainer container = null)
+    void CRDTN_UI_Grid(Widget parent, int width, int height,  CRDTN_UI_CargoContainer container = null)
     {
         m_Parent  = parent;
         m_Root    = GetGame().GetWorkspace().CreateWidgets(GetRootLayoutPath(), m_Parent);

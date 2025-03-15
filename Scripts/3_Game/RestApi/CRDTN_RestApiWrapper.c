@@ -1,6 +1,8 @@
-  /**
- * This file contains the implementation of the CRDTN_RestApiWrapper class, which is responsible for handling REST API requests.
- */
+int METRICS_HTTP_REQ = 0;
+
+/**
+* This file contains the implementation of the CRDTN_RestApiWrapper class, which is responsible for handling REST API requests.
+*/
 
   /**
  * This function calculates the sum of two integers.
@@ -19,6 +21,7 @@ int calculateSum(int a, int b) {
 class CRDTN_RestApiWrapper
 {
     protected string m_URL;
+    protected RestApi _restApi;
     protected ref CRDTN_RestCallbackBase m_Callback;
     protected ref CRDTN_EventHandler m_EventHandler;
     ref ScriptInvoker EOnSuccess = new ScriptInvoker();
@@ -30,8 +33,8 @@ class CRDTN_RestApiWrapper
      */
     void CRDTN_RestApiWrapper(string url)
     {
+        _restApi = CreateRestApi();
         m_URL = url;
-        GetRestApi().EnableDebug(true);
         m_Callback     = new CRDTN_RestCallbackBase;
         m_EventHandler = new CRDTN_EventHandler;
         if (m_Callback.OnSuccess)
@@ -116,8 +119,9 @@ class CRDTN_RestApiWrapper
      */
     void ExecuteRequest(string url, string method, string data)
     {        
-        RestContext ctx = GetRestApi().GetRestContext(m_URL);
+        RestContext ctx = _restApi.GetRestContext(m_URL);
         ctx.SetHeader("application/json");
+        METRICS_HTTP_REQ++;
         switch(method)
         {
             case "GET": 
@@ -140,7 +144,11 @@ class CRDTN_RestApiWrapper
     {
         if (!response)
         {
-            DebugUtils.Log("[CRDTN_RestApiWrapper]: OnSuccessfullRequest() - response is null");
+            return;
+        }
+
+        if (response == "")
+        {
             return;
         }
           // DebugUtils.Log("[CRDTN_RestApiWrapper]: OnSuccessfullRequest() - " + response);

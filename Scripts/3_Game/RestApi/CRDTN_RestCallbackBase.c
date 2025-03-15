@@ -25,6 +25,12 @@ class CRDTN_RestCallbackBase : RestCallback
 
     override void OnSuccess(string data, int dataSize)
     {
+        if (!data || data == "")
+        {
+            Print("REST API CALLBACK - DATA IS EMPTY");
+            return;
+        }
+
         if (OnSuccess)
         {
             OnSuccess.Invoke(data);

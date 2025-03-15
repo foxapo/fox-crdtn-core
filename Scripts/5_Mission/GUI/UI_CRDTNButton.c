@@ -9,7 +9,7 @@ class UI_CRDTNButton extends ScriptedWidgetEventHandler
     ref             ScriptInvoker       EOnSelect;
     ref             Param               ContextData;
 
-    void OnInit(ref Param param)
+    void OnInit( Param param)
     {
         ContextData = param;
     }
@@ -24,7 +24,7 @@ class UI_CRDTNButton extends ScriptedWidgetEventHandler
         w.SetHandler(this);
     }
 
-    void SetData(string entryIconPath, ref ScriptInvoker listEntrySelected)
+    void SetData(string entryIconPath,  ScriptInvoker listEntrySelected)
     {
         if (entryIconPath == "")
         {
@@ -38,7 +38,7 @@ class UI_CRDTNButton extends ScriptedWidgetEventHandler
         RefreshUI();
     }
 
-    void SetSelectedCallback(ref ScriptInvoker selectedCallback)
+    void SetSelectedCallback( ScriptInvoker selectedCallback)
     {
         EOnSelect = selectedCallback;
     }

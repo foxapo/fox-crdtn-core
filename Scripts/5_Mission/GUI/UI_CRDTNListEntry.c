@@ -12,7 +12,7 @@ class UI_CRDTNListEntry extends ScriptedWidgetEventHandler
     ref             ScriptInvoker       EListEntrySelected;
     ref             Param               ContextData;
 
-    void OnInit(ref Param param)
+    void OnInit( Param param)
     {
         ContextData = param;
     }
@@ -29,7 +29,7 @@ class UI_CRDTNListEntry extends ScriptedWidgetEventHandler
         w.SetHandler(this);
     }
 
-    void SetData(string primaryText, string secondaryText, string entryIconPath, ref ScriptInvoker listEntrySelected)
+    void SetData(string primaryText, string secondaryText, string entryIconPath,  ScriptInvoker listEntrySelected)
     {
         _PrimaryText   = primaryText;
         _SecondaryText = secondaryText;

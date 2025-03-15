@@ -3,7 +3,7 @@ class CRDTN_Spawn
     ref array<ref CRDTN_Location> SpawnLocations = new array<ref CRDTN_Location>();
     ref array<ref CRDTN_NpcLocation> NpcLocations = new array<ref CRDTN_NpcLocation>();
 
-    static void Save(string path, ref CRDTN_Spawn dataInstance)
+    static void Save(string path, CRDTN_Spawn dataInstance)
     {
         JsonFileLoader<ref CRDTN_Spawn>.JsonSaveFile(path, dataInstance);
     }
