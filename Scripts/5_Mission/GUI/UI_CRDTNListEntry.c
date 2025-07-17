@@ -1,14 +1,16 @@
 class UI_CRDTNListEntry extends ScriptedWidgetEventHandler
 {
-    private         ButtonWidget        m_EntryButton;
-    private         Widget              m_Root;
+    protected       ButtonWidget        m_EntryButton;
+    protected       Widget              m_Root;
     protected       TextWidget          m_PrimaryText;
     protected       TextWidget          m_SecondaryText;
     protected       ImageWidget         m_EntryIcon;
     protected       ImageWidget         m_Selected;
-    private         string              _PrimaryText;
-    private         string              _SecondaryText;
-    private         string              _EntryIcon;
+
+    protected       string              _PrimaryText;
+    protected       string              _SecondaryText;
+    protected       string              _EntryIcon;
+    
     ref             ScriptInvoker       EListEntrySelected;
     ref             Param               ContextData;
 

@@ -50,10 +50,10 @@ class CRDTN_UI_GridItem
 
 	void DestroyObject()
 	{
-		if (m_Item)
-			m_Item.GetOnItemFlipped().Remove(UpdateFlip);
+		// if (m_Item)
+		// 	m_Item.GetOnItemFlipped().Remove(UpdateFlip);
 
-		m_Item = NULL;
+		// m_Item = NULL;
 
 		if (EventMouseEnter)
 			EventMouseEnter.Clear();
@@ -64,7 +64,7 @@ class CRDTN_UI_GridItem
 		if (EventMouseClick)
 			EventMouseClick.Clear();
 
-		delete m_EventButton;
+		// delete m_EventButton;
 		m_Root.Unlink();
 	}
 

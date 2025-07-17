@@ -45,6 +45,11 @@ class UI_CRDTNButton extends ScriptedWidgetEventHandler
 
     void RefreshUI()
     {
+        if (!m_Icon)
+        {
+            return;
+        }
+
         m_Icon.LoadImageFile(0, _EntryIcon);
         m_Icon.SetImage(0);
     }
@@ -101,5 +106,14 @@ class UI_CRDTNButton extends ScriptedWidgetEventHandler
             return;
         }
         m_Selected.Show(state);
+    }
+
+    void Show(bool state) // Show or hide the entire button
+    {
+        if (!m_Root)
+        {
+            return;
+        }
+        m_Root.Show(state);
     }
 };

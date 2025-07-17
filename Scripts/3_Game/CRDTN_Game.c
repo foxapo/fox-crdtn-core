@@ -70,7 +70,42 @@ modded class DayZGame
             CRDTN_Config.Load(m_CRDTN_Config);
         }
 
+        InitializePlayableCharacterClassnames();
         CRDTN_OnGameInit();
+    }
+
+    /// @brief A helper method that is run with the construction of DayZGame to get rid of the custom classnames for survivors.
+    /// For some reason, the game does automatically add all the new inherited classes from SurvivorBase 
+    // ** Make override if you want to customize that ** 
+    void InitializePlayableCharacterClassnames()
+    {
+        DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Game::DayZGame() CRDTN::InitializePlayableCharacterClassnames() - Override this to change playable character survivor classes!");
+        if (!m_CharClassNames)
+        {
+            m_CharClassNames = new array<string>;
+        }
+        else
+        {
+            m_CharClassNames.Clear();
+        }
+
+        string path = "cfgVehicles";
+        string child_name = "";
+        int count = ConfigGetChildrenCount(path);
+        
+        for (int p = 0; p < count; ++p)
+        {
+            ConfigGetChildName(path, p, child_name);
+            if (child_name.Contains("CRDTN_"))
+            {
+                continue;
+            }
+            if (ConfigGetInt(path + " " + child_name + " scope") == 2 && IsKindOf(child_name, "SurvivorBase"))
+            {
+                DebugUtils.Log(CFG_CRDTN_Core_Prefix + " Game::DayZGame() Adding playable character: " + child_name);
+                m_CharClassNames.Insert(child_name);
+            }
+        }
     }
 
     // Use this for override to do some magic after game init
