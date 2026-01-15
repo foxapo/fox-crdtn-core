@@ -8,8 +8,9 @@ class CRDTN_Config
     bool CRDTN_DisableIntroNotification = false;
     bool CRDTN_Debug = true;
     bool CRDTN_IntroMusic = true;
-    ref set<string> CRDTN_AdminList = new ref set<string>();
-    ref map<string, string> CRDTN_Packages = new ref map<string, string>();
+    
+	ref set<string> CRDTN_AdminList = new set<string>();
+    ref map<string, string> CRDTN_Packages = new map<string, string>();
 
     void PrintData()
     {

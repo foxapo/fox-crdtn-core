@@ -19,17 +19,32 @@ class CRDTN_CorePluginServer : CRDTN_CorePluginBase
 
     void PlaySoundOnClient(PlayerBase player, string soundSetName)
     {
-        GetRPCManager().SendRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClient", new Param1<string>(soundSetName), false, player.GetIdentity());
+        PlayerIdentity identity = null;
+        if (player != null)
+        {
+            identity = player.GetIdentity();
+        }
+        GetRPCManager().SendRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClient", new Param1<string>(soundSetName), false, identity);
     }
 
     void PlaySoundOnClientObject(PlayerBase player, Object object, string soundSetName)
     {
-        GetRPCManager().SendRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClientObject", new Param1<string>(soundSetName), false, player.GetIdentity(), object);
+        PlayerIdentity identity = null;
+        if (player != null)
+        {
+            identity = player.GetIdentity();
+        }
+        GetRPCManager().SendRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClientObject", new Param1<string>(soundSetName), false, identity, object);
     }
 
     void PlaySoundOnClientEnvironment(PlayerBase player, vector position, string soundSetName)
     {
-        GetRPCManager().SendRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClientEnvironment", new Param2<string, vector>(soundSetName, position), false, player.GetIdentity());
+        PlayerIdentity identity = null;
+        if (player != null)
+        {
+            identity = player.GetIdentity();
+        }
+        GetRPCManager().SendRPC(CFG_CRDTN_Core_Prefix, "RPC_PlaySoundOnClientEnvironment", new Param2<string, vector>(soundSetName, position), false, identity);
     }
 
     void InitMission(string serverName)

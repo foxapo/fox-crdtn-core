@@ -1,5 +1,5 @@
 PanelWidgetClass BodyDivider {
- size 1 0.15
+ size 1 0.03
  halign center_ref
  hexactpos 1
  vexactpos 1

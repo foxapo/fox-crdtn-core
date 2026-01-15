@@ -23,6 +23,6 @@ class CRDTN_Core_SoundShader_Sound_Siren2 : CRDTN_Core_SoundShader_Sound_Base
 
 class CRDTN_Core_SoundShader_Sound_Siren1 : CRDTN_Core_SoundShader_Sound_Base
 {
-    range = 400;
+    range = 800;
     samples[] = {{"CRDTN_Core\Data\sounds\alarm\siren1", 1}};
 };
