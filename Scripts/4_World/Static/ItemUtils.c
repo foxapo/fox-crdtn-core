@@ -135,6 +135,43 @@ class CRDTN_Core_ItemUtils
         return result;
     }
 
+    static ref array<Object> FindItemInEntityInventory(string type, EntityAI entity, bool notRuined = false)
+    {
+        ref array<Object> result = new ref array<Object>;
+        type.ToLower();
+
+        if (!entity || !entity.GetInventory())
+            return null;
+
+        array<EntityAI> objects = new array<EntityAI>;
+
+        entity.GetInventory().EnumerateInventory(InventoryTraversalType.PREORDER, objects);
+
+        for (int i = 0; i < objects.Count(); i++)
+        {
+            EntityAI obj = objects.Get(i);
+            string check_type = obj.GetType();
+            check_type.ToLower();
+
+            if (check_type == type)
+            {
+                if (!notRuined)
+                {
+                    result.Insert(obj);
+                }
+                else
+                {
+                    if (!obj.IsRuined())
+                    {
+                        result.Insert(obj);
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+
     static bool HasItemInInventory(string item, PlayerBase pl = NULL)
     {
         if (!pl)
